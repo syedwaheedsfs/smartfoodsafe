@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Logo from "./smart_food_logo.png";
+import Logo from "../assets/smartfoodlogo.png";
 import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
@@ -21,7 +21,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
-import Folderlogo from "./folder.png";
+import Folderlogo from "../assets/folder.png";
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   logoImg: {
-    height: 90,
+    height: 40,
     width: "auto",
     paddingleft: 0,
   },
