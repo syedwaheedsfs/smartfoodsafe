@@ -9,10 +9,6 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css"; 
 
 const theme = createMuiTheme({
-  // palette: {
-  //   primary: { main: "#3f51b5" },
-  //   secondary: { main: "#f50057" },
-  // },
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h6: {
@@ -21,7 +17,7 @@ const theme = createMuiTheme({
     body1: {
       fontWeight: 400,
     },
-    // …etc.
+    
   },
   palette: {
     primary: { main: "#3f51b5" },
@@ -39,7 +35,6 @@ export default function App() {
           <Route path="/card/:id" element={<CardDetail/>} />
         </Routes>
       </BrowserRouter>
-      {/* <Album /> */}
     </ThemeProvider>
   );
 }

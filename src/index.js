@@ -6,7 +6,7 @@ import App from "./App";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#FF7A00" }, // FoodReady orange
+    primary: { main: "#FF7A00" },
     secondary: { main: "#333" },
   },
   typography: {
