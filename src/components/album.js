@@ -13,7 +13,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Logo from "./smartfoodlogo.png";
 import SearchIcon from "@material-ui/icons/Search";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
@@ -46,6 +45,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffffff",
     boxShadow: "none",
     border: "1px solid #E0E0E0",
+    
   },
   cardContent: {
     flexGrow: 1,
@@ -153,12 +154,15 @@ const useStyles = makeStyles((theme) => ({
   cardHeader: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     marginBottom: theme.spacing(1),
   },
   folderlogo: {
+    
     width: "18%",
     height: "auto",
     marginRight: theme.spacing(1),
+    objectFit: "contain",
   },
   panel: {
     "&:before": {
@@ -166,9 +170,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   summaryRoot: {
-    
     padding: 0,
-   
+
     "&$expanded": {
       margin: 0,
     },
@@ -214,7 +217,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cardData = [
+export const cardData = [
   {
     id: 1,
     title: "SMART AUDIT",
@@ -595,9 +598,25 @@ const imageMap = {
   16:Smartvisitor
 }
 
+
+
 export default function Album() {
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = React.useState("");
+
+
+  const displayedCards = searchTerm
+    ? cardData.filter((c) => {
+        const titleMatch = c.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+        const headingMatch = c.sections.some((section) =>
+          section.heading.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        return titleMatch || headingMatch;
+      })
+    : cardData;
+
 
   return (
     <React.Fragment>   
@@ -636,7 +655,6 @@ export default function Album() {
       </AppBar>
 
       {/* ——— SEARCH BAR ——— */}
-
       <AppBar
         position="static"
         className={classes.appBar}
@@ -647,43 +665,30 @@ export default function Album() {
         }}
       >
         <Container maxWidth="md">
-          <Toolbar disableGutters>
-            <Autocomplete
-              freeSolo
+          <Toolbar disableGutters style={{ padding: 0, width: "100%" }}>
+            <TextField
               fullWidth
-              options={searchOptions}
-              style={{ flexGrow: 1, padding: 0 }} // fill most of the toolbar
-              inputValue={searchTerm}
-              onInputChange={(e, v) => setSearchTerm(v)}
-              renderInput={(params) => (
-                <TextField
-                
-                  {...params}
-                  fullWidth
-                  placeholder="Search…"
-                  variant="outlined"
-                  size="medium"
-                  className={classes.searchInput}
-                  InputProps={{
-                    ...params.InputProps,
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                    
-                    endAdornment: searchTerm && (
-
-                      <InputAdornment position="end">
-                        <HighlightOffOutlinedIcon
-                          style={{ cursor: "pointer" }}
-                          onClick={() => setSearchTerm("")}
-                        />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              )}
+              variant="outlined"
+              size="medium"
+              placeholder="Search…"
+              className={classes.searchInput}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+                endAdornment: searchTerm && (
+                  <InputAdornment position="end">
+                    <HighlightOffOutlinedIcon
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setSearchTerm("")}
+                    />
+                  </InputAdornment>
+                ),
+              }}
             />
           </Toolbar>
         </Container>
@@ -701,7 +706,7 @@ export default function Album() {
                   xs={12}
                   sm={3}
                   md={3}
-                  className={idx < 4 ? classes.tallCard : ""}
+                  
                 >
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
@@ -715,7 +720,7 @@ export default function Album() {
                           />
                           <Typography
                             gutterBottom
-                            variant="h7"
+                            variant="h6"
                             component="h2"
                             style={{ fontWeight: 500, fontSize: "0.8rem" }}
                           >
@@ -745,7 +750,6 @@ export default function Album() {
                           className={classes.panel}
                         >
                           <ExpansionPanelSummary
-                            // expandIcon={<ExpandMoreIcon />}
                             expandIcon={
                               <ExpandMoreIcon className={classes.expandIcon} />
                             }
@@ -765,7 +769,10 @@ export default function Album() {
                             </Typography>
                           </ExpansionPanelSummary>
                           <ExpansionPanelDetails
-                            style={{ flexDirection: "column", paddingLeft: 16 }}
+                            style={{
+                              flexDirection: "column",
+                              paddingLeft: 16,
+                            }}
                           >
                             {section.items.map((item, i) => (
                               <Box
@@ -786,18 +793,19 @@ export default function Album() {
                         </ExpansionPanel>
                       ))}
                     </CardContent>
-                    {showExplore && (
-                      <CardActions>
-                        <Button
-                          size="small"
-                          className={classes.exploreMoreBtn}
-                          variant="outlined"
-                          style={{ marginLeft: "8px" }}
-                        >
-                          Explore More &gt;
-                        </Button>
-                      </CardActions>
-                    )}
+
+                    <CardActions>
+                      <Button
+                        component={Link}
+                        to={`/card/${id}`}
+                        size="small"
+                        className={classes.exploreMoreBtn}
+                        variant="outlined"
+                        style={{ marginLeft: "8px" }}
+                      >
+                        Explore More &gt;
+                      </Button>
+                    </CardActions>
                   </Card>
                 </Grid>
               )
