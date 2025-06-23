@@ -16,7 +16,25 @@ import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
-import Folderlogo from "./folder.png";
+
+// card logo 
+import Smartaudit from "./assets/smartaudit.png";
+import Smartenp from "./assets/smartenp.png";
+import Smartlab from "./assets/smartlab.png";
+import Smartspec from "./assets/smartspec.png";
+import Smartcapa from "./assets/smartcapa.png";
+import Smartfarm from "./assets/smartfarm.png";
+import Smartrecall from "./assets/smartrecall.png";
+import Smartsupplier from "./assets/smartsupplier.png";
+import Smartcompliance from "./assets/smartcompliance.png";
+import Smarthaccp from "./assets/smarthaccp.png";
+import Smartrecord from "./assets/smartrecord.png";
+import Smarttraning from "./assets/smarttraning.png";
+import Smartdoc from "./assets/smartdoc.png";
+import Smartaim from "./assets/smartaim.png";
+import Smartregulatory from "./assets/smartregulatory.png";
+import Smartvisitor from "./assets/smartvisitor.png";   
+
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
@@ -77,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   submitBtn: {
-    backgroundColor: "#F68F3F",
+    backgroundColor: " #7b7bd3",
     color: "#ffffff",
     borderRadius: 4,
     textTransform: "none",
@@ -89,15 +107,15 @@ const useStyles = makeStyles((theme) => ({
 
   logoutBtn: {
     marginLeft: theme.spacing(1),
-    borderColor: "#F68F3F",
-    color: "#F68F3F",
+    borderColor: " #7b7bd3",
+    color: " #7b7bd3",
     borderRadius: 4,
     textTransform: "none",
     fontWeight: 500,
     "&:hover": {
-      backgroundColor: "rgba(246, 143, 63, 0.08)",
-      borderColor: "#e07839",
-      color: "#e07839",
+      backgroundColor: "rgb(174, 174, 229)",
+      borderColor: " #7b7bd3",
+      color: "#7b7bd3",
     },
   },
 
@@ -202,49 +220,60 @@ const useStyles = makeStyles((theme) => ({
 export const cardData = [
   {
     id: 1,
-    title: "Reports",
-    description: "View and Generate Reports",
+    title: "SMART AUDIT",
+    description: "Accurate, compliant audit solution.",
     count: 4,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Audit Ready",
+          "Digital Audit Records",
+          "Offline Auditing",
+          "NC Management",
+          "Scores and Rating",
+          "Audit Scheduling",
+          "Dashboard and Reporting",
+          "Multi Language",
+          "Improve Compliance Gaps"
         ],
       },
     ],
   },
   {
     id: 2,
-    title: "AI Features",
-    description: "AI SOP Writer, AI Checklist Generator",
+    title: "SMART EMP",
+    description: "Streamlined environmental monitoring processes.",
     count: 2,
-    showExplore: false,
+    showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Digital Layout and Mapping",
+          "Scheduling (Planned & Random)",
+          "EMP Process automation",
+          "Corrective Action Management",
+          "Built in FDA Listeria Guidelines",
+          "Heat and Harborage Site Map",
+          "Real-Time Data Analytics",
+          "Workflow",
+          "Notification"
+
         ],
       },
     ],
   },
   {
     id: 3,
-    title: "HACCP / PC",
-    description: "Create HACCP Plan Using Blank Plan Option,…",
+    title: "SMART LAB",
+    description: "Automated, precise lab operations.",
     count: 2,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
           "View Reports",
           "Generate Reports",
@@ -256,94 +285,99 @@ export const cardData = [
   },
   {
     id: 4,
-    title: "Checklist & SOPs",
-    description: "Checklists, Creating and Managing SOP",
+    title: "SMART SPECIFICATION",
+    description: "Ensure quality with standardized specifications.",
     count: 10,
-    showExplore: false,
+    showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Digital Specifications",
+          "Built-In Product Characteristics",
+          "Supplier To Material Linking",
+          "Nutrition Facts Labels",
+          "Bill of Materials Linking",
+          "Alerts and Notifications",
+          "Dashboard and Reporting",
+          "Global Allergen List"
         ],
       },
     ],
   },
   {
     id: 5,
-    title: "Tasks & Verification",
-    description: "Task Manager, Verification",
+    title: "SMART CAPA",
+    description: "Resolve issues, ensure compliance.",
     count: 6,
-    showExplore: false,
+    showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "CAPA Management",
+          "Complaint Management",
+          "Product Hold and Release",
+          "Deviations Management",
+          "Root Cause Analysis",
+          "Corrective Action Management",
+          "Dashboard",
+          "Effectiveness Review",
+          "Reporting & Trend Analysis",
         ],
       },
     ],
   },
   {
     id: 6,
-    title: "Environmental Monitoring",
-    description: "Monitoring and Sampling",
+    title: "SMART FARM",
+    description: "Digitized farm management for efficiency.",
     count: 2,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Field Mapping",
+          "Crop Management",
+          "End-To-End Solutions",
+          "Post Reap Management",
+          "Blockchain-Enabled Traceability",
+          "Weather Integration",
+          "Dashboard and Reporting",
+          "Agronomist and Grower Portal",
+          "Offline Mobile Application"
         ],
       },
     ],
   },
   {
     id: 7,
-    title: "Supply Chain – Supplier Approval",
-    description: "Supplier Document Upload Portal and Approval",
+    title: "SMART RECALL",
+    description: "Efficient and reliable recall management.",
     count: 5,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
           "View Reports",
           "Generate Reports",
           "Export CSV",
           "Download PDF",
         ],
-      },
-      {
-        heading: "Report Actions",
-        items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
-        ],
-      },
+      }
     ],
   },
   {
     id: 8,
-    title: "Supply Chain – Inventory Management",
-    description: "Inventory Management Overview,…",
+    title: "SMART SUPPLIER",
+    description: "Enhance collaboration with supplier tools.",
     count: 23,
-    showExplore: false,
+    showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
           "View Reports",
           "Generate Reports",
@@ -355,32 +389,37 @@ export const cardData = [
   },
   {
     id: 9,
-    title: "Recall Management and Traceability",
-    description: "Recall Management",
+    title: "SMART COMPLIANCE",
+    description: "Track and maintain regulatory adherencence",
     count: 2,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Automate Product Release",
+          "Material & Product Verification",
+          "Purchasing Document Management",
+          "Real Time Product Compliance",
+          "Save Time and Money",
+          "Manage Product Non compliance",
+          "Generate Compliance Certificate",
+          "Effectiveness Review",
+          "Improved Communication"
         ],
       },
     ],
   },
   {
     id: 10,
-    title: "FoodReady Support",
+    title: "SMART HACCP",
     description:
-      "Network Troubleshooting, FoodReady Support Team, Software Updates",
+      "Simplify hazard analysis for safety.",
     count: 4,
-    showExplore: false,
+    showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
           "View Reports",
           "Generate Reports",
@@ -392,13 +431,13 @@ export const cardData = [
   },
   {
     id: 11,
-    title: "Integrations",
-    description: "Zebra Scanner, Bluetooth Devices, Sandbox Mode",
+    title: "SMART RECORD",
+    description: "Accurate and effortless data recording.",
     count: 1,
     showExplore: false,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
           "View Reports",
           "Generate Reports",
@@ -410,13 +449,13 @@ export const cardData = [
   },
   {
     id: 12,
-    title: "User Settings",
-    description: "Profile, Preferences, Notifications",
+    title: "SMART TRAINING",
+    description: "Enable teams with digital learning.",
     count: 1,
     showExplore: true,
     sections: [
       {
-        heading: "Report Actions",
+        heading:"Features",
         items: [
           "View Reports",
           "Generate Reports",
@@ -426,8 +465,91 @@ export const cardData = [
       },
     ],
   },
+  {
+    id: 13,
+    title: "SMART DOCS",
+    description: "Secure, centralized document management.",
+    count: 23,
+    showExplore: true,
+    sections: [
+      {
+        heading:"Features",
+        items: [
+          "Document Creation",
+          "Document Life Cycle",
+          "21 CFR Part 11 Compliant",
+          "Advanced Search",
+          "Global Quality & Food Safety Standards",
+          "Audit Readiness",
+          "Dashboard and Reporting",
+          "Data Backup and Export",
+          "Efficient Document Management"
+        ],
+      },
+    ],
+  },
+  {
+    id: 14,
+    title: "SMART IAM",
+    description: "Manage identity and access seamlessly.",
+    count: 2,
+    showExplore: true,
+    sections: [
+      {
+        heading:"Features",
+        items: [
+          "User Management",
+          "Role Management",
+          "Access Control",
+          "Multi site and Corporate Access",
+          "Admin Panel",
+          "CCP/PCP Automation",
+          "Master Data Bulk Upload",
+          "Security",
+          "Custom Role"
+        ],
+      },
+    ],
+  },
+  {
+    id: 15,
+    title: "SMART REGULATORY",
+    description:
+      "Streamline and simplify regulatory tasks.",
+    count: 4,
+    showExplore: true,
+    sections: [
+      {
+        heading:"Features",
+        items: [
+            "View Reports",
+          "Generate Reports",
+          "Export CSV",
+          "Download PDF"
+        ],
+      },
+    ],
+  },
+  {
+    id: 16,
+    title: "SMART VISITOR",
+    description: "Streamlined visitor onboarding process.",
+    count: 1,
+    showExplore: true,
+    sections: [
+      {
+        heading:"Features",
+        items: [
+          "View Reports",
+          "Generate Reports",
+          "Export CSV",
+          "Download PDF",
+        ],
+      },
+    ],
+  }
+  
 ];
-
 
 const suggestions = [
   {
@@ -448,8 +570,35 @@ const suggestions = [
   },
 ];
 
+const searchOptions = [
+  "Supplier Document Upload Portal",
+  "FoodReady Grid",
+  "AI SOP Writer",
+  "Zebra Scanner Integration",
+];
+// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = Array.from({ length: 16 }, (_, i) => i + 1);
 
-const cards = Array.from({ length: 12 }, (_, i) => i + 1);
+const imageMap = {
+  1:Smartaudit,
+  2:Smartenp,
+  3:Smartlab,
+  4:Smartspec,
+  5:Smartcapa,
+  6:Smartfarm,
+  7:Smartrecall,
+  8:Smartsupplier,
+  9:Smartcompliance,
+  10:Smarthaccp,
+  11:Smartrecord,
+  12:Smarttraning,
+  13:Smartdoc,
+  14:Smartaim,
+  15:Smartregulatory,
+  16:Smartvisitor
+}
+
+
 
 export default function Album() {
   const classes = useStyles();
@@ -470,11 +619,11 @@ export default function Album() {
 
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <React.Fragment>   
+      <CssBaseline />            {/*Resets the browser’s default CSS*/}
       {/* ← NEW TOP BAR */}
-      <AppBar
-        position="static"
+      <AppBar                          
+        position="sticky"
         color="inherit"
         elevation={1}
         style={{ border: "none", boxShadow: "none" }}
@@ -544,18 +693,18 @@ export default function Album() {
           </Toolbar>
         </Container>
       </AppBar>
-
-      {/* grid */}
+      
+      {/* Cards */}
       <main style={{ backgroundColor: "#fff" }}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {displayedCards.map(
-              ({ id, title, count, showExplore, sections }, idx) => (
+            {cardData.map(
+              ({ id, title, count, showExplore, sections,description }, idx) => (
                 <Grid
                   item
                   key={id}
                   xs={12}
-                  sm={6}
+                  sm={3}
                   md={3}
                   
                 >
@@ -565,7 +714,7 @@ export default function Album() {
                         {/* icon + title */}
                         <Box display="flex" alignItems="center">
                           <img
-                            src={Folderlogo}
+                            src={imageMap[id]}
                             alt="folderlogo"
                             className={classes.folderlogo}
                           />
@@ -573,7 +722,7 @@ export default function Album() {
                             gutterBottom
                             variant="h6"
                             component="h2"
-                            style={{ fontWeight: 500, fontSize: "1.1rem" }}
+                            style={{ fontWeight: 500, fontSize: "0.8rem" }}
                           >
                             {title}
                           </Typography>
@@ -591,6 +740,7 @@ export default function Album() {
                           {count}
                         </Typography>
                       </Box>
+                      <Box style={{color:"gray"}}>{description}</Box>
 
                       {/* dropdown */}
                       {sections.map((section, idx) => (
