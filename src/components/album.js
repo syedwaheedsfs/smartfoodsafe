@@ -33,7 +33,8 @@ import Smarttraning from "./assets/smarttraning.png";
 import Smartdoc from "./assets/smartdoc.png";
 import Smartaim from "./assets/smartaim.png";
 import Smartregulatory from "./assets/smartregulatory.png";
-import Smartvisitor from "./assets/smartvisitor.png";   
+import Smartvisitor from "./assets/smartvisitor.png"; 
+import { useNavigate } from "react-router-dom";  
 
 import {
   ExpansionPanel,
@@ -66,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffffff",
     boxShadow: "none",
     border: "1px solid #E0E0E0",
-    
   },
   cardContent: {
     flexGrow: 1,
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     fontWeight: 500,
     "&:hover": {
-      backgroundColor: "#e07839",
+      backgroundColor: "#7b7bd3",
     },
   },
 
@@ -158,7 +158,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   },
   folderlogo: {
-    
     width: "18%",
     height: "auto",
     marginRight: theme.spacing(1),
@@ -201,13 +200,13 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       height: 56,
       "& fieldset": {
-        borderColor: "#ccc", // default border
+        borderColor: "#ccc",
       },
       "&:hover fieldset": {
-        borderColor: "#ccc", // still grey on hover
+        borderColor: "#ccc",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "#ccc", // force grey on focus
+        borderColor: "#ccc",
       },
     },
     "& .MuiInputBase-input": {
@@ -551,32 +550,10 @@ export const cardData = [
   
 ];
 
-const suggestions = [
-  {
-    title: "Supplier Document Upload Portal",
-    subtitle: "Supplier Document Upload Portal and Approval",
-  },
-  {
-    title: "How to use FoodReady Grid",
-    subtitle: "Introduction to FoodReady Grid",
-  },
-  {
-    title: "How to Use the AI Feature to Write SOPs",
-    subtitle: "AI SOP Writer",
-  },
-  {
-    title: "How to Use a Zebra Scanner with the FoodReady App",
-    subtitle: "Bluetooth Devices",
-  },
-];
 
-const searchOptions = [
-  "Supplier Document Upload Portal",
-  "FoodReady Grid",
-  "AI SOP Writer",
-  "Zebra Scanner Integration",
-];
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
 const cards = Array.from({ length: 16 }, (_, i) => i + 1);
 
 const imageMap = {
@@ -603,7 +580,7 @@ const imageMap = {
 export default function Album() {
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = React.useState("");
-
+  const navigate = useNavigate(); 
 
   const displayedCards = searchTerm
     ? cardData.filter((c) => {
@@ -619,10 +596,10 @@ export default function Album() {
 
 
   return (
-    <React.Fragment>   
-      <CssBaseline />            {/*Resets the browser’s default CSS*/}
+    <React.Fragment>
+      <CssBaseline /> 
       {/* ← NEW TOP BAR */}
-      <AppBar                          
+      <AppBar
         position="sticky"
         color="inherit"
         elevation={1}
@@ -653,7 +630,6 @@ export default function Album() {
           </Toolbar>
         </Container>
       </AppBar>
-
       {/* ——— SEARCH BAR ——— */}
       <AppBar
         position="static"
@@ -693,21 +669,16 @@ export default function Album() {
           </Toolbar>
         </Container>
       </AppBar>
-      
       {/* Cards */}
       <main style={{ backgroundColor: "#fff" }}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {cardData.map(
-              ({ id, title, count, showExplore, sections,description }, idx) => (
-                <Grid
-                  item
-                  key={id}
-                  xs={12}
-                  sm={3}
-                  md={3}
-                  
-                >
+            {displayedCards.map(
+              (
+                { id, title, count, showExplore, sections, description },
+                idx
+              ) => (
+                <Grid item key={id} xs={12} sm={3} md={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Box className={classes.cardHeader}>
@@ -740,7 +711,7 @@ export default function Album() {
                           {count}
                         </Typography>
                       </Box>
-                      <Box style={{color:"gray"}}>{description}</Box>
+                      <Box style={{ color: "gray" }}>{description}</Box>
 
                       {/* dropdown */}
                       {sections.map((section, idx) => (
@@ -774,21 +745,22 @@ export default function Album() {
                               paddingLeft: 16,
                             }}
                           >
-                            {section.items.map((item, i) => (
-                              <Box
-                                key={i}
-                                display="flex"
-                                alignItems="center"
-                                mb={0.5}
-                              >
-                                {/* invisible icon for alignment */}
-                                <ExpandMoreIcon
-                                  fontSize="small"
-                                  style={{ opacity: 0 }}
-                                />
-                                <Typography variant="body2">{item}</Typography>
-                              </Box>
-                            ))}
+                            {section.items.map((item, i) => {
+                              const slug = item.toLowerCase().replace(/\s+/g, "-");
+                              return (
+                                  <Box
+                                    key={i}
+                                    display="flex"
+                                    alignItems="center"
+                                    mb={0.5}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => navigate(`/card/${id}/${slug}`)}      
+                                    >
+                                      <ExpandMoreIcon fontSize="small" style={{ opacity: 0 }} />
+                                          <Typography variant="body2">{item}</Typography>
+                                   </Box>
+                        );
+                      })}
                           </ExpansionPanelDetails>
                         </ExpansionPanel>
                       ))}
