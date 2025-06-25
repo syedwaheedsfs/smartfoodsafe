@@ -247,9 +247,8 @@ export default function FileManagerPage() {
           <Card className={classes.tocCard} style={{ boxShadow: "none" }}>
             <CardContent>
               <Typography
-                color="primary"
                 gutterBottom
-                style={{ fontWeight: 600 }}
+                style={{ fontWeight: 600, color: "#F68F3F", paddingLeft:"13px" }}
               >
                 Table Of Contents
               </Typography>

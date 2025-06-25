@@ -13,14 +13,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const Test = () => {
-  const { featureName } = useParams();
+  const { featureSlug } = useParams();
   const [openCards, setOpenCards] = useState({});
 
   // Find which card contains this feature
   const activeCard = cardData.find((card) =>
     card.sections[0].items.some(
       (item) =>
-        item.toLowerCase().replace(/\s+/g, "-") === featureName?.toLowerCase()
+        item.toLowerCase().replace(/\s+/g, "-") === featureSlug?.toLowerCase()
     )
   );
 
@@ -88,7 +88,7 @@ const Test = () => {
                       .replace(/^\d+\.-/, "") // remove leading number-dot-dash like "2.-"
                       .replace(/\s+/g, "-") // replace spaces with dashes
                       .replace(/[^\w-]+/g, "");
-                    const isSelected = itemSlug === featureName;
+                    const isSelected = itemSlug === featureSlug;
                     return (
                       <ListItem
                         key={index}
