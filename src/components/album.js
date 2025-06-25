@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
     textTransform: "none",  
     "&:hover": {
-      backgroundColor: "rgb(74, 74, 159)",
+      backgroundColor: "#7b7bd3",
     },
   },
 
@@ -149,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   },
   folderlogo: {
-    width: "20%",
+    width: "18%",
     height: "auto",
     marginRight: theme.spacing(1),
     objectFit: "contain",
@@ -563,18 +563,24 @@ export const cardData = [
 export default function Album() {
   const navigate = useNavigate();
   const classes = useStyles();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = React.useState("");
+ 
 
-  const displayedCards = searchTerm ? cardData.filter((c) => {
-        const titleMatch = c.title.toLowerCase().includes(searchTerm.toLowerCase());
-        const headingMatch = c.sections.some((section) =>section.heading.toLowerCase().includes(searchTerm.toLowerCase()));
+  const displayedCards = searchTerm
+    ? cardData.filter((c) => {
+        const titleMatch = c.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+        const headingMatch = c.sections.some((section) =>
+          section.heading.toLowerCase().includes(searchTerm.toLowerCase())
+        );
         return titleMatch || headingMatch;
       })
     : cardData;
 
   return (
     <React.Fragment>
-      <CssBaseline /> {/*Resets the browser’s default CSS*/}
+      <CssBaseline /> 
       {/* ← NEW TOP BAR */}
       <AppBar
         position="sticky"

@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import App from "./App";
+import { createTheme } from "@material-ui/core/styles";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
-    primary: { main: "#FF7A00" }, // FoodReady orange
+    primary: { main: "#FF7A00" },
     secondary: { main: "#333" },
   },
   typography: {

@@ -1,17 +1,16 @@
 import React from "react";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Album from "./components/album";
-import Test from "./components/test";
+import FeaturePage from "./components/featurepage"
 import CardDetail from "./components/carddetail"
 import "@fontsource/inter/400.css"; 
 import "@fontsource/inter/500.css"; 
 import "@fontsource/inter/600.css"; 
+import { createTheme } from '@material-ui/core/styles'
 
-// import FeatureDetails from "./components/FeatureDetails";
-
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h6: {
@@ -36,7 +35,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Album />} />
           <Route path="/card/:id" element={<CardDetail/>} />
-          <Route path="/card/:id/:featureName" element={<Test />} />
+          <Route                                                                     
+           path="/card/:cardId/:featureSlug"                                          
+           element={<FeaturePage />} />   
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
