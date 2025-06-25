@@ -1,23 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
+
+// Layout
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+// Text
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+// Controls
+import Button from "@material-ui/core/Button";
+// Cards
+import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+// css
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Logo from "./smartfoodlogo.png";
-import SearchIcon from "@material-ui/icons/Search";
-import TextField from "@material-ui/core/TextField";
+// Enhancer
 import InputAdornment from "@material-ui/core/InputAdornment";
+// Icon
+import SearchIcon from "@material-ui/icons/Search";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
 
-// card logo 
+// Media
+import Logo from "./smartfoodlogo.png";
+// card logo
 import Smartaudit from "./assets/smartaudit.png";
 import Smartenp from "./assets/smartenp.png";
 import Smartlab from "./assets/smartlab.png";
@@ -33,8 +42,10 @@ import Smarttraning from "./assets/smarttraning.png";
 import Smartdoc from "./assets/smartdoc.png";
 import Smartaim from "./assets/smartaim.png";
 import Smartregulatory from "./assets/smartregulatory.png";
-import Smartvisitor from "./assets/smartvisitor.png"; 
-import { useNavigate } from "react-router-dom";  
+import Smartvisitor from "./assets/smartvisitor.png";
+// Navigate
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {
   ExpansionPanel,
@@ -42,7 +53,7 @@ import {
   ExpansionPanelDetails,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -66,20 +77,13 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     flexGrow: 1,
+    padding: theme.spacing(2),
   },
-
-  tallCard: {
-    [theme.breakpoints.up("md")]: {
-      minHeight: 380,
-    },
-  },
+    
   toolbar: {
     padding: 0,
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    boxShadow: "none",
-    border: "none",
+    justifyContent: "space-between"
   },
 
   toolbarContainer: {
@@ -93,9 +97,7 @@ const useStyles = makeStyles((theme) => ({
   submitBtn: {
     backgroundColor: " #7b7bd3",
     color: "#ffffff",
-    borderRadius: 4,
-    textTransform: "none",
-    fontWeight: 500,
+    textTransform: "none",  
     "&:hover": {
       backgroundColor: "#7b7bd3",
     },
@@ -104,14 +106,12 @@ const useStyles = makeStyles((theme) => ({
   logoutBtn: {
     marginLeft: theme.spacing(1),
     borderColor: " #7b7bd3",
-    color: " #7b7bd3",
-    borderRadius: 4,
+    color: " #2a2a70",
     textTransform: "none",
-    fontWeight: 500,
     "&:hover": {
-      backgroundColor: "rgb(174, 174, 229)",
+      backgroundColor: "rgb(182, 182, 221)",
       borderColor: " #7b7bd3",
-      color: "#7b7bd3",
+      color: " #2a2a70",
     },
   },
 
@@ -140,13 +140,8 @@ const useStyles = makeStyles((theme) => ({
 
   logoImg: {
     height: 50,
-    width: "auto",
-    paddingleft: 0,
   },
 
-  cardContent: {
-    padding: theme.spacing(2),
-  },
   cardHeader: {
     display: "flex",
     alignItems: "center",
@@ -173,8 +168,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   summaryContent: {
-    // flexDirection: "row-reverse",
-    // alignItems: "center",
     display: "flex",
     alignItems: "center",
     margin: 0, // kill the MUI default margin
@@ -182,9 +175,8 @@ const useStyles = makeStyles((theme) => ({
   },
   expandIcon: {
     order: -1,
-    // marginRight: theme.spacing(0.25),
     paddingRight: 7,
-    fontSize: "1.7rem",
+    fontSize: "1.8rem",
   },
   sectionHeading: {
     fontSize: "0.80rem",
@@ -193,24 +185,9 @@ const useStyles = makeStyles((theme) => ({
 
   searchInput: {
     width: "100%",
-    "& .MuiOutlinedInput-root": {
-      height: 56,
-      "& fieldset": {
-        borderColor: "#ccc",
-      },
-      "&:hover fieldset": {
-        borderColor: "#ccc",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#ccc",
-      },
-    },
-    "& .MuiInputBase-input": {
-      paddingTop: 0,
-      paddingBottom: 0,
-    },
   },
 }));
+
 
 export const cardData = [
   {
@@ -234,7 +211,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartaudit,
+    image: Smartaudit
   },
   {
     id: 2,
@@ -257,7 +234,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartenp,
+    image:Smartenp
   },
   {
     id: 3,
@@ -280,7 +257,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartlab,
+    image:Smartlab
   },
   {
     id: 4,
@@ -302,7 +279,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartspec,
+    image:Smartspec
   },
   {
     id: 5,
@@ -325,7 +302,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartcapa,
+    image:Smartcapa
   },
   {
     id: 6,
@@ -348,7 +325,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartfarm,
+    image:Smartfarm
   },
   {
     id: 7,
@@ -371,7 +348,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartrecall,
+    image:Smartrecall
   },
   {
     id: 8,
@@ -394,7 +371,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartsupplier,
+    image:Smartsupplier
   },
   {
     id: 9,
@@ -417,7 +394,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartcompliance,
+    image:Smartcompliance
   },
   {
     id: 10,
@@ -440,7 +417,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smarthaccp,
+    image:Smarthaccp
   },
   {
     id: 11,
@@ -463,7 +440,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartrecord,
+    image:Smartrecord
   },
   {
     id: 12,
@@ -486,7 +463,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smarttraning,
+    image:Smarttraning
   },
   {
     id: 13,
@@ -509,7 +486,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartdoc,
+    image:Smartdoc
   },
   {
     id: 14,
@@ -532,7 +509,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartaim,
+    image:Smartaim
   },
   {
     id: 15,
@@ -555,7 +532,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartregulatory,
+    image:Smartregulatory
   },
   {
     id: 16,
@@ -576,40 +553,18 @@ export const cardData = [
           "8. Employee Directory Integration",
           "9. Multilingual",
         ],
+        
       },
     ],
-    image: Smartvisitor,
+    image:Smartvisitor
   },
 ];
 
-
-const cards = Array.from({ length: 16 }, (_, i) => i + 1);
-
-const imageMap = {
-  1:Smartaudit,
-  2:Smartenp,
-  3:Smartlab,
-  4:Smartspec,
-  5:Smartcapa,
-  6:Smartfarm,
-  7:Smartrecall,
-  8:Smartsupplier,
-  9:Smartcompliance,
-  10:Smarthaccp,
-  11:Smartrecord,
-  12:Smarttraning,
-  13:Smartdoc,
-  14:Smartaim,
-  15:Smartregulatory,
-  16:Smartvisitor
-}
-
-
-
 export default function Album() {
+  const navigate = useNavigate();
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = React.useState("");
-  const navigate = useNavigate(); 
+ 
 
   const displayedCards = searchTerm
     ? cardData.filter((c) => {
@@ -623,7 +578,6 @@ export default function Album() {
       })
     : cardData;
 
-
   return (
     <React.Fragment>
       <CssBaseline /> 
@@ -631,15 +585,14 @@ export default function Album() {
       <AppBar
         position="sticky"
         color="inherit"
-        elevation={1}
         style={{ border: "none", boxShadow: "none" }}
       >
         <Container maxWidth="md">
           <Toolbar className={classes.toolbar}>
-            <Box className={classes.logoWrapper}>
+            <Box>
               <img src={Logo} alt="FoodReady" className={classes.logoImg} />
             </Box>
-            <Box className={classes.buttonGroup}>
+            <Box>
               <Button
                 variant="contained"
                 size="small"
@@ -662,7 +615,6 @@ export default function Album() {
       {/* ——— SEARCH BAR ——— */}
       <AppBar
         position="static"
-        className={classes.appBar}
         style={{
           backgroundColor: "#fff",
           color: "#000",
@@ -670,9 +622,8 @@ export default function Album() {
         }}
       >
         <Container maxWidth="md">
-          <Toolbar disableGutters style={{ padding: 0, width: "100%" }}>
+           <Toolbar disableGutters>      {/*Removes the default left and right padding from the toolbar   */}
             <TextField
-              fullWidth
               variant="outlined"
               size="medium"
               placeholder="Search…"
@@ -702,19 +653,15 @@ export default function Album() {
       <main style={{ backgroundColor: "#fff" }}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {displayedCards.map(
-              (
-                { id, title, count, showExplore, sections, description },
-                idx
-              ) => (
+            {displayedCards.map(({ id, title, count, sections, description,image },idx) => (
                 <Grid item key={id} xs={12} sm={3} md={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Box className={classes.cardHeader}>
                         {/* icon + title */}
-                        <Box display="flex" alignItems="center">
+                        <Box display="flex" alignItems="center" >
                           <img
-                            src={imageMap[id]}
+                            src={image}
                             alt="folderlogo"
                             className={classes.folderlogo}
                           />
@@ -722,7 +669,7 @@ export default function Album() {
                             gutterBottom
                             variant="h6"
                             component="h2"
-                            style={{ fontWeight: 500, fontSize: "0.8rem" }}
+                            style={{ fontWeight: 500, fontSize: "0.85rem" }}
                           >
                             {title}
                           </Typography>
@@ -750,9 +697,7 @@ export default function Album() {
                           className={classes.panel}
                         >
                           <ExpansionPanelSummary
-                            expandIcon={
-                              <ExpandMoreIcon className={classes.expandIcon} />
-                            }
+                            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
                             classes={{
                               root: classes.summaryRoot,
                               content: classes.summaryContent,
@@ -774,47 +719,44 @@ export default function Album() {
                               paddingLeft: 16,
                             }}
                           >
-                            {section.items.map((item, i) => {
-                              const slug = item.toLowerCase().replace(/\s+/g, "-");
-                              return (
-                                <Box
-                                  key={i}
-                                  display="flex"
-                                  alignItems="center"
-                                  mb={0.5}
-                                  style={{ cursor: "pointer" }}
-                                  // onClick={() => navigate(`/card/${id}/${slug}`)}
-                                  onClick={() =>
-                                    navigate(
-                                      `/card/${id}/${item
-                                        .toLowerCase()
-                                        .replace(/^\d+\.-/, "") // remove leading number-dot-dash like "2.-"
-                                        .replace(/\s+/g, "-") // replace spaces with dashes
-                                        .replace(/[^\w-]+/g, "")}`,
-                                      {
-                                        state: {
-                                          cardTitle: section.title,
-                                          features: section.items.map(
-                                            (feature) => ({
-                                              name: feature, // if section.items is a list of feature names
-                                              count: 1, // or your actual count if available
-                                            })
-                                          ),
-                                        },
-                                      }
-                                    )
-                                  }
-                                >
-                                  <ExpandMoreIcon
-                                    fontSize="small"
-                                    style={{ opacity: 0 }}
-                                  />
-                                  <Typography variant="body2">
-                                    {item}
-                                  </Typography>
-                                </Box>
-                              );
-                      })}
+                            {section.items.map((item, i) => (
+                              <Box
+                                key={i}
+                                display="flex"
+                                alignItems="center"
+                                mb={0.5}
+                                onClick={() =>
+                                  navigate(
+                                    `/card/${id}/${item
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")}`,
+                                    {
+                                      state: {
+                                        cardTitle: section.title,
+                                        features: section.items.map(
+                                          (feature) => ({
+                                            name: feature, // if section.items is a list of feature names
+                                            count: 1, // or your actual count if available
+                                          })
+                                        ),
+                                      },
+                                    }
+                                  )
+                                }
+                                style={{
+                                  cursor: "pointer",
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                              >
+                                {/* invisible icon for alignment */}
+                                <ExpandMoreIcon
+                                  fontSize="small"
+                                  style={{ opacity: 0 }}
+                                />
+                                <Typography variant="body2">{item}</Typography>
+                              </Box>
+                            ))}
                           </ExpansionPanelDetails>
                         </ExpansionPanel>
                       ))}
