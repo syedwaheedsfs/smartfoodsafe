@@ -12,25 +12,32 @@ import { cardData } from "./album";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+export const slugify = (str) =>
+     (str || "")
+    .toString()
+    .toLowerCase()
+    .replace(/^\d+\.\s*/, "")   // remove leading number-dot-space
+    .replace(/\s+/g, "-")       // replace spaces with hyphens
+    .trim();
+
 const Test = () => {
-  const { featureName } = useParams();
+  const { featureSlug } = useParams();
   const [openCards, setOpenCards] = useState({});
 
   // Find which card contains this feature
   const activeCard = cardData.find((card) =>
-    card.sections[0].items.some(
-      (item) =>
-        item.toLowerCase().replace(/\s+/g, "-") === featureName?.toLowerCase()
-    )
-  );
+    card.sections[0].items.some((item) => {
+      const itemSlug = slugify(item);
+      return itemSlug === featureSlug;
+    })
+  )
 
   // On mount: open only the active card
   useEffect(() => {
     if (activeCard) {
       setOpenCards({ [activeCard.id]: true });
-    }
+    } 
   }, [activeCard]);
-
   const toggleCard = (id) => {
     setOpenCards((prev) => ({ ...prev, [id]: !prev[id] }));
   };
@@ -83,12 +90,8 @@ const Test = () => {
               <Box bgcolor="#fff">
                 <List disablePadding>
                   {card.sections[0].items.map((item, index) => {
-                    const itemSlug = item
-                      .toLowerCase()
-                      .replace(/^\d+\.-/, "") // remove leading number-dot-dash like "2.-"
-                      .replace(/\s+/g, "-") // replace spaces with dashes
-                      .replace(/[^\w-]+/g, "");
-                    const isSelected = itemSlug === featureName;
+                    const itemSlug = slugify(item);
+                    const isSelected = itemSlug === featureSlug;
                     return (
                       <ListItem
                         key={index}
