@@ -54,6 +54,8 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+import { slugify } from "./sidebar";
+
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -711,11 +713,7 @@ export default function Album() {
                                 mb={0.5}
                                 onClick={() =>
                                   navigate(
-                                    `/card/${id}/${item
-                                      .toLowerCase()
-                                      .replace(/^\d+\.-/, "")       // remove leading number-dot-dash like "2.-"
-                                      .replace(/\s+/g, "-")          // replace spaces with dashes
-                                      .replace(/[^\w-]+/g, "")}`,
+                                    `/card/${id}/${slugify(item)}`,
                                     {
                                       state: {
                                         cardTitle: section.title,
