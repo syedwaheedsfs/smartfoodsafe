@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -20,6 +19,7 @@ import dashboard from "./assets/dashboard.png"
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Test from "./sidebar";
 const drawerWidth = 320;
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#F0F4F7",
     minHeight: "100vh",
   },
-  topBarSpacing: theme.mixins.toolbar,
 
   pageWrapper: {
     display: "flex",
@@ -41,22 +40,10 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.drawer + 1,
     backgroundColor: "#fff",
     color: "#000",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    border: "none",
-    width: drawerWidth,
-    marginLeft: theme.spacing(19),
-    marginTop: theme.spacing(3),
-    backgroundColor: "transparent",
-  },
-  
+  },  
   content: {
     flexGrow: 1,
-    padding: theme.spacing(9),
+    padding: theme.spacing(8),
     paddingTop: "24px",
   },
   tocCard: {
@@ -154,25 +141,6 @@ export default function FileManagerPage() {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
-
-  const navItems = [
-    { text: "Getting Started, Settings", count: 21 },
-    {
-      text: "File Manager, Bluetooth Devices & FoodReady Grid",
-      count: 6,
-      nested: [
-        { text: "File Manager" },
-        { text: "Bluetooth Devices" },
-        { text: "Introduction to FoodReady Grid" },
-      ],
-    },
-
-    { text: "FoodReady Support", count: 4 },
-    { text: "FoodReady Support", count: 4 },
-    { text: "FoodReady Support", count: 4 },
-    { text: "FoodReady Support", count: 4 },
-  ];
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -208,7 +176,7 @@ export default function FileManagerPage() {
       </AppBar>
 
       <Container maxWidth="lg" className={classes.pageWrapper}>
-        <Drawer
+        {/* <Drawer
           className={classes.drawer}
           variant="permanent"
           classes={{ paper: classes.drawerPaper }}
@@ -242,8 +210,9 @@ export default function FileManagerPage() {
               </React.Fragment>
             ))}
           </List>
-        </Drawer>
-
+        </Drawer> */}
+        <Test/>
+        
         <main className={classes.content}>
           <div className={classes.toolbar} />
 

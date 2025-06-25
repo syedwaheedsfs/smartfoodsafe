@@ -40,10 +40,6 @@ import {
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
-  List,
-  ListItem,
-  InputBase,
-  Paper,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Link } from "react-router-dom";
@@ -222,336 +218,369 @@ export const cardData = [
     title: "SMART AUDIT",
     description: "Accurate, compliant audit solution.",
     count: 4,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "Audit Ready",
-          "Digital Audit Records",
-          "Offline Auditing",
-          "NC Management",
-          "Scores and Rating",
-          "Audit Scheduling",
-          "Dashboard and Reporting",
-          "Multi Language",
-          "Improve Compliance Gaps"
+          "1. Audit Ready",
+          "2. Digital Audit Records",
+          "3. Offline Auditing",
+          "4. NC Management",
+          "5. Scores and Rating",
+          "6. Audit Scheduling",
+          "7. Dashboard and Reporting",
+          "8. Multi Language",
+          "9. Improve Compliance Gaps",
         ],
       },
     ],
+    image: Smartaudit,
   },
   {
     id: 2,
     title: "SMART EMP",
     description: "Streamlined environmental monitoring processes.",
     count: 2,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "Digital Layout and Mapping",
-          "Scheduling (Planned & Random)",
-          "EMP Process automation",
-          "Corrective Action Management",
-          "Built in FDA Listeria Guidelines",
-          "Heat and Harborage Site Map",
-          "Real-Time Data Analytics",
-          "Workflow",
-          "Notification"
-
+          "1. Digital Layout and Mapping",
+          "2. Scheduling (Planned & Random)",
+          "3. EMP Process automation",
+          "4. Corrective Action Management",
+          "5. Built in FDA Listeria Guidelines",
+          "6. Heat and Harborage Site Map",
+          "7. Real-Time Data Analytics",
+          "8. Workflow",
+          "9. Notification",
         ],
       },
     ],
+    image: Smartenp,
   },
   {
     id: 3,
     title: "SMART LAB",
     description: "Automated, precise lab operations.",
     count: 2,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Laboratory Management",
+          "2. Customer Portal",
+          "3. Quote Management",
+          "4. GMP Compliant Software",
+          "5. Laboratory Integration",
+          "6. Invoicing",
+          "7. Dashboard and Reporting",
+          "8. Analysis Planning",
+          "9. Lab Asset Management",
         ],
       },
     ],
+    image: Smartlab,
   },
   {
     id: 4,
     title: "SMART SPECIFICATION",
     description: "Ensure quality with standardized specifications.",
     count: 10,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "Digital Specifications",
-          "Built-In Product Characteristics",
-          "Supplier To Material Linking",
-          "Nutrition Facts Labels",
-          "Bill of Materials Linking",
-          "Alerts and Notifications",
-          "Dashboard and Reporting",
-          "Global Allergen List"
+          "1. Digital Specifications",
+          "2. Built-In Product Characteristics",
+          "3. Supplier To Material Linking",
+          "4. Nutrition Facts Labels",
+          "5. Bill of Materials Linking",
+          "6. Alerts and Notifications",
+          "7. Dashboard and Reporting",
+          "8. Global Allergen List",
         ],
       },
     ],
+    image: Smartspec,
   },
   {
     id: 5,
     title: "SMART CAPA",
     description: "Resolve issues, ensure compliance.",
     count: 6,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "CAPA Management",
-          "Complaint Management",
-          "Product Hold and Release",
-          "Deviations Management",
-          "Root Cause Analysis",
-          "Corrective Action Management",
-          "Dashboard",
-          "Effectiveness Review",
-          "Reporting & Trend Analysis",
+          "1. CAPA Management",
+          "2. Complaint Management",
+          "3. Product Hold and Release",
+          "4. Deviations Management",
+          "5. Root Cause Analysis",
+          "6. Corrective Action Management",
+          "7. Dashboard",
+          "8. Effectiveness Review",
+          "9. Reporting & Trend Analysis",
         ],
       },
     ],
+    image: Smartcapa,
   },
   {
     id: 6,
     title: "SMART FARM",
     description: "Digitized farm management for efficiency.",
     count: 2,
-    showExplore: true,
     sections: [
       {
         heading: "Features",
         items: [
-          "Field Mapping",
-          "Crop Management",
-          "End-To-End Solutions",
-          "Post Reap Management",
-          "Blockchain-Enabled Traceability",
-          "Weather Integration",
-          "Dashboard and Reporting",
-          "Agronomist and Grower Portal",
-          "Offline Mobile Application"
+          "1. Field Mapping",
+          "2. Crop Management",
+          "3. End-To-End Solutions",
+          "4. Post Reap Management",
+          "5. Blockchain-Enabled Traceability",
+          "6. Weather Integration",
+          "7. Dashboard and Reporting",
+          "8. Agronomist and Grower Portal",
+          "9. Offline Mobile Application",
         ],
       },
     ],
+    image: Smartfarm,
   },
   {
     id: 7,
     title: "SMART RECALL",
     description: "Efficient and reliable recall management.",
     count: 5,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Single Source of Recall Data",
+          "2. Recall Alerts",
+          "3. Customized Notifications",
+          "4. Food Safety Trends",
+          "5. Searchable Database",
+          "6. Dashboard",
+          "7. Recall Management",
+          "8. Mock Recall",
+          "9. Regulatory Compliance",
         ],
-      }
+      },
     ],
+    image: Smartrecall,
   },
   {
     id: 8,
     title: "SMART SUPPLIER",
     description: "Enhance collaboration with supplier tools.",
     count: 23,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Supplier Risk Assessment",
+          "2. Approval and Performance",
+          "3. Supplier Engagement Portal",
+          "4. Approval Scores & Ratings",
+          "5. Improved Communication",
+          "6. Non-Compliance Management",
+          "7. Dashboard and Reporting",
+          "8. Alerts and Notifications",
+          "9. Cost Savings",
         ],
       },
     ],
+    image: Smartsupplier,
   },
   {
     id: 9,
     title: "SMART COMPLIANCE",
     description: "Track and maintain regulatory adherencence",
     count: 2,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "Automate Product Release",
-          "Material & Product Verification",
-          "Purchasing Document Management",
-          "Real Time Product Compliance",
-          "Save Time and Money",
-          "Manage Product Non compliance",
-          "Generate Compliance Certificate",
-          "Effectiveness Review",
-          "Improved Communication"
+          "1. Automate Product Release",
+          "2. Material & Product Verification",
+          "3. Purchasing Document Management",
+          "4. Real Time Product Compliance",
+          "5. Save Time and Money",
+          "6. Manage Product Non compliance",
+          "7. Generate Compliance Certificate",
+          "8. Effectiveness Review",
+          "9. Improved Communication",
         ],
       },
     ],
+    image: Smartcompliance,
   },
   {
     id: 10,
     title: "SMART HACCP",
-    description:
-      "Simplify hazard analysis for safety.",
+    description: "Simplify hazard analysis for safety.",
     count: 4,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Digital HACCP",
+          "2. Process Flow Diagrams",
+          "3. End-To-End Solutions",
+          "4. Hazard Database",
+          "5. Smart Linking",
+          "6. CCP/PCP Automation",
+          "7. Dashboard and Reporting",
+          "8. HACCP Reassessment",
+          "9. Customized Risk Matrix",
         ],
       },
     ],
+    image: Smarthaccp,
   },
   {
     id: 11,
     title: "SMART RECORD",
     description: "Accurate and effortless data recording.",
     count: 1,
-    showExplore: false,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Online Form Builder",
+          "2. Conditions and Validations",
+          "3. User Experience",
+          "4. Advanced Search",
+          "5. Traceability",
+          "6. Offline Record Keeping",
+          "7. Voice Integration",
+          "8. Bluetooth Integration",
+          "9. IoT Integration",
         ],
       },
     ],
+    image: Smartrecord,
   },
   {
     id: 12,
     title: "SMART TRAINING",
     description: "Enable teams with digital learning.",
     count: 1,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "Course Creation",
+          "Self Learning",
+          "Group Learning",
+          "Training Skill Matrix",
+          "Onboarding Training",
+          "Refresher Training",
+          "Dashboard and Reporting",
+          "Scheduling",
+          "Training Library",
         ],
       },
     ],
+    image: Smarttraning,
   },
   {
     id: 13,
     title: "SMART DOCS",
     description: "Secure, centralized document management.",
     count: 23,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "Document Creation",
-          "Document Life Cycle",
-          "21 CFR Part 11 Compliant",
-          "Advanced Search",
-          "Global Quality & Food Safety Standards",
-          "Audit Readiness",
-          "Dashboard and Reporting",
-          "Data Backup and Export",
-          "Efficient Document Management"
+          "1. Document Creation",
+          "2. Document Life Cycle",
+          "3. 21 CFR Part 11 Compliant",
+          "4. Advanced Search",
+          "5. Global Quality & Food Safety Standards",
+          "6. Audit Readiness",
+          "7. Dashboard and Reporting",
+          "8. Data Backup and Export",
+          "9. Efficient Document Management",
         ],
       },
     ],
+    image: Smartdoc,
   },
   {
     id: 14,
     title: "SMART IAM",
     description: "Manage identity and access seamlessly.",
     count: 2,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "User Management",
-          "Role Management",
-          "Access Control",
-          "Multi site and Corporate Access",
-          "Admin Panel",
-          "CCP/PCP Automation",
-          "Master Data Bulk Upload",
-          "Security",
-          "Custom Role"
+          "1. User Management",
+          "2. Role Management",
+          "3. Access Control",
+          "4. Multi site and Corporate Access",
+          "5. Admin Panel",
+          "6. CCP/PCP Automation",
+          "7. Master Data Bulk Upload",
+          "8. Security",
+          "9. Custom Role",
         ],
       },
     ],
+    image: Smartaim,
   },
   {
     id: 15,
     title: "SMART REGULATORY",
-    description:
-      "Streamline and simplify regulatory tasks.",
+    description: "Streamline and simplify regulatory tasks.",
     count: 4,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-            "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF"
+          "1. One-Stop Solution",
+          "2. Centralize Regulatory Data",
+          "3. Country and Commodity Specific Requirements",
+          "4. Regulatory Update",
+          "5. Searchable Database",
+          "6. Alerts and Notifications",
+          "7. Improved Visibility",
+          "8. Reduce Workload",
+          "9. Risk Assessment Models",
         ],
       },
     ],
+    image: Smartregulatory,
   },
   {
     id: 16,
     title: "SMART VISITOR",
     description: "Streamlined visitor onboarding process.",
     count: 1,
-    showExplore: true,
     sections: [
       {
-        heading:"Features",
+        heading: "Features",
         items: [
-          "View Reports",
-          "Generate Reports",
-          "Export CSV",
-          "Download PDF",
+          "1. Contactless Check-In",
+          "2. Digital Training & Agreements",
+          "3. Customized Look & Feel Design",
+          "4. Photo & ID Capture",
+          "5. Two-Way Communications",
+          "6. Pre-Registration and Recurring Visitors",
+          "7. Visitor Reports",
+          "8. Employee Directory Integration",
+          "9. Multilingual",
         ],
       },
     ],
-  }
-  
+    image: Smartvisitor,
+  },
 ];
-
-
-
 
 
 const cards = Array.from({ length: 16 }, (_, i) => i + 1);
@@ -748,18 +777,43 @@ export default function Album() {
                             {section.items.map((item, i) => {
                               const slug = item.toLowerCase().replace(/\s+/g, "-");
                               return (
-                                  <Box
-                                    key={i}
-                                    display="flex"
-                                    alignItems="center"
-                                    mb={0.5}
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => navigate(`/card/${id}/${slug}`)}      
-                                    >
-                                      <ExpandMoreIcon fontSize="small" style={{ opacity: 0 }} />
-                                          <Typography variant="body2">{item}</Typography>
-                                   </Box>
-                        );
+                                <Box
+                                  key={i}
+                                  display="flex"
+                                  alignItems="center"
+                                  mb={0.5}
+                                  style={{ cursor: "pointer" }}
+                                  // onClick={() => navigate(`/card/${id}/${slug}`)}
+                                  onClick={() =>
+                                    navigate(
+                                      `/card/${id}/${item
+                                        .toLowerCase()
+                                        .replace(/^\d+\.-/, "") // remove leading number-dot-dash like "2.-"
+                                        .replace(/\s+/g, "-") // replace spaces with dashes
+                                        .replace(/[^\w-]+/g, "")}`,
+                                      {
+                                        state: {
+                                          cardTitle: section.title,
+                                          features: section.items.map(
+                                            (feature) => ({
+                                              name: feature, // if section.items is a list of feature names
+                                              count: 1, // or your actual count if available
+                                            })
+                                          ),
+                                        },
+                                      }
+                                    )
+                                  }
+                                >
+                                  <ExpandMoreIcon
+                                    fontSize="small"
+                                    style={{ opacity: 0 }}
+                                  />
+                                  <Typography variant="body2">
+                                    {item}
+                                  </Typography>
+                                </Box>
+                              );
                       })}
                           </ExpansionPanelDetails>
                         </ExpansionPanel>
