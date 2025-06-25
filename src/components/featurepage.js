@@ -20,7 +20,6 @@ import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Test from "./sidebar";
-const drawerWidth = 320;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,14 +32,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
     paddingLeft: theme.spacing(2),
-    alignItems: "flex-start", 
+    alignItems: "flex-start",
     marginTop: theme.mixins.toolbar.minHeight,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     backgroundColor: "#fff",
     color: "#000",
-  },  
+  },
   content: {
     flexGrow: 1,
     paddingTop: "24px",
@@ -50,11 +49,12 @@ const useStyles = makeStyles((theme) => ({
   tocCard: {
     marginBottom: theme.spacing(3),
     backgroundColor: "#fafafa",
-    maxWidth: 250, 
+    maxWidth: 250,
     width: "auto",
   },
   breadcrumbs: {
     marginBottom: theme.spacing(2),
+    fontSize: "0.81rem",
   },
   nestedList: {
     paddingLeft: theme.spacing(4),
@@ -140,7 +140,10 @@ export default function FileManagerPage() {
   const theme = useTheme();
   
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
+  const segments = location.pathname
+    .split("/")
+    .filter((seg) => seg && seg.toLowerCase() !== "card");
+
 
   return (
     <div className={classes.root}>
@@ -177,11 +180,11 @@ export default function FileManagerPage() {
       </AppBar>
 
       <Container maxWidth="lg" className={classes.pageWrapper}>
-        <Test/>
-        
+        {/* import side bar component */}
+        <Test />
+
         <main className={classes.content}>
           <div className={classes.toolbar} />
-
           <Breadcrumbs
             aria-label="breadcrumb"
             separator={
@@ -193,24 +196,33 @@ export default function FileManagerPage() {
             }
             className={classes.breadcrumbs}
           >
+            {/* Home always first */}
             <Link component={RouterLink} to="/" color="inherit">
               Home
             </Link>
 
-            {pathnames.map((value, index) => {
-              const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-              const isLast = index === pathnames.length - 1;
+            {segments.map((seg, idx) => {
+              const isLast = idx === segments.length - 1;
+
+              const to =
+                idx === 0
+                  ? `/card/${seg}`
+                  : `/card/${segments[0]}/${segments[1]}`;
+
+              const display =
+                idx === 0 ? seg : formatLabel(seg.replace(/^\d+\.?\s*/, ""));
+
               return isLast ? (
                 <Typography
-                  color="textPrimary"
                   key={to}
-                  style={{ color: "#0096FF" }}
+                  color="textPrimary"
+                  style={{ color: "#0096FF", fontSize: "0.81rem" }}
                 >
-                  {formatLabel(value)}
+                  {display}
                 </Typography>
               ) : (
-                <Link component={RouterLink} color="inherit" to={to} key={to}>
-                  {formatLabel(value)}
+                <Link component={RouterLink} to={to} color="inherit" key={to}>
+                  {display}
                 </Link>
               );
             })}
@@ -234,7 +246,11 @@ export default function FileManagerPage() {
 
           <Card className={classes.tocCard} style={{ boxShadow: "none" }}>
             <CardContent>
-              <Typography color="primary" gutterBottom>
+              <Typography
+                color="primary"
+                gutterBottom
+                style={{ fontWeight: 600 }}
+              >
                 Table Of Contents
               </Typography>
               <List disablePadding>
