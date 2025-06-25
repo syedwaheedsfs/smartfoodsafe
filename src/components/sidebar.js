@@ -37,7 +37,7 @@ const Test = () => {
   return (
     <Box  display="flex" height="100vh" >
       <Box
-      position="fixed"
+        position="fixed"
         overflow="auto"
         height="100vh"
         width="350px"
@@ -85,7 +85,7 @@ const Test = () => {
                 <List disablePadding>
                   {card.sections[0].items.map((item, index) => {
                     const itemSlug = item
-                                    .toLowerCase()
+                      .toLowerCase()
                                     .replace(/^\d+\.-/, "")       // remove leading number-dot-dash like "2.-"
                                     .replace(/\s+/g, "-")         // replace spaces with dashes
                                     .replace(/[^\w-]+/g, "") ;
