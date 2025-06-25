@@ -43,8 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },  
   content: {
     flexGrow: 1,
-    padding: theme.spacing(8),
     paddingTop: "24px",
+    marginLeft: "390px",
+    padding: "20px",
   },
   tocCard: {
     marginBottom: theme.spacing(3),
@@ -176,41 +177,6 @@ export default function FileManagerPage() {
       </AppBar>
 
       <Container maxWidth="lg" className={classes.pageWrapper}>
-        {/* <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{ paper: classes.drawerPaper }}
-        >
-          <div className={classes.topBarSpacing} />
-          <List style={{ cursor: "pointer", backgroundColor: "#fff" }}>
-            {navItems.map((item, idx) => (
-              <React.Fragment key={idx}>
-                <ListItem button>
-                  <ListItemText primary={item.text} />
-                  {item.count != null && (
-                    <Typography variant="body2" color="textSecondary">
-                      {item.count}
-                    </Typography>
-                  )}
-                </ListItem>
-
-                {item.nested && (
-                  <List
-                    component="div"
-                    disablePadding
-                    className={classes.nestedList}
-                  >
-                    {item.nested.map((sub, i) => (
-                      <ListItem button key={i}>
-                        <ListItemText primary={sub.text} />
-                      </ListItem>
-                    ))}
-                  </List>
-                )}
-              </React.Fragment>
-            ))}
-          </List>
-        </Drawer> */}
         <Test/>
         
         <main className={classes.content}>

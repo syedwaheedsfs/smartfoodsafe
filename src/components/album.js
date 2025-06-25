@@ -194,7 +194,6 @@ export const cardData = [
     id: 1,
     title: "SMART AUDIT",
     description: "Accurate, compliant audit solution.",
-    count: 4,
     sections: [
       {
         heading: "Features",
@@ -217,7 +216,6 @@ export const cardData = [
     id: 2,
     title: "SMART EMP",
     description: "Streamlined environmental monitoring processes.",
-    count: 2,
     sections: [
       {
         heading: "Features",
@@ -240,7 +238,6 @@ export const cardData = [
     id: 3,
     title: "SMART LAB",
     description: "Automated, precise lab operations.",
-    count: 2,
     sections: [
       {
         heading: "Features",
@@ -263,7 +260,6 @@ export const cardData = [
     id: 4,
     title: "SMART SPECIFICATION",
     description: "Ensure quality with standardized specifications.",
-    count: 10,
     sections: [
       {
         heading: "Features",
@@ -285,7 +281,6 @@ export const cardData = [
     id: 5,
     title: "SMART CAPA",
     description: "Resolve issues, ensure compliance.",
-    count: 6,
     sections: [
       {
         heading: "Features",
@@ -308,7 +303,6 @@ export const cardData = [
     id: 6,
     title: "SMART FARM",
     description: "Digitized farm management for efficiency.",
-    count: 2,
     sections: [
       {
         heading: "Features",
@@ -331,7 +325,6 @@ export const cardData = [
     id: 7,
     title: "SMART RECALL",
     description: "Efficient and reliable recall management.",
-    count: 5,
     sections: [
       {
         heading: "Features",
@@ -354,7 +347,6 @@ export const cardData = [
     id: 8,
     title: "SMART SUPPLIER",
     description: "Enhance collaboration with supplier tools.",
-    count: 23,
     sections: [
       {
         heading: "Features",
@@ -377,7 +369,6 @@ export const cardData = [
     id: 9,
     title: "SMART COMPLIANCE",
     description: "Track and maintain regulatory adherencence",
-    count: 2,
     sections: [
       {
         heading: "Features",
@@ -400,7 +391,6 @@ export const cardData = [
     id: 10,
     title: "SMART HACCP",
     description: "Simplify hazard analysis for safety.",
-    count: 4,
     sections: [
       {
         heading: "Features",
@@ -423,7 +413,6 @@ export const cardData = [
     id: 11,
     title: "SMART RECORD",
     description: "Accurate and effortless data recording.",
-    count: 1,
     sections: [
       {
         heading: "Features",
@@ -446,7 +435,6 @@ export const cardData = [
     id: 12,
     title: "SMART TRAINING",
     description: "Enable teams with digital learning.",
-    count: 1,
     sections: [
       {
         heading: "Features",
@@ -469,7 +457,6 @@ export const cardData = [
     id: 13,
     title: "SMART DOCS",
     description: "Secure, centralized document management.",
-    count: 23,
     sections: [
       {
         heading: "Features",
@@ -492,7 +479,6 @@ export const cardData = [
     id: 14,
     title: "SMART IAM",
     description: "Manage identity and access seamlessly.",
-    count: 2,
     sections: [
       {
         heading: "Features",
@@ -515,7 +501,6 @@ export const cardData = [
     id: 15,
     title: "SMART REGULATORY",
     description: "Streamline and simplify regulatory tasks.",
-    count: 4,
     sections: [
       {
         heading: "Features",
@@ -538,7 +523,6 @@ export const cardData = [
     id: 16,
     title: "SMART VISITOR",
     description: "Streamlined visitor onboarding process.",
-    count: 1,
     sections: [
       {
         heading: "Features",
@@ -684,7 +668,7 @@ export default function Album() {
                             fontSize: "0.90rem",
                           }}
                         >
-                          {count}
+                          {sections[0].items.length}
                         </Typography>
                       </Box>
                       <Box style={{ color: "gray" }}>{description}</Box>
