@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Album from "./components/album";

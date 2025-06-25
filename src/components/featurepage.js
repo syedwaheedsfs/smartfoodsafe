@@ -42,8 +42,9 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(8),
     paddingTop: "24px",
+    marginLeft: "390px",
+    padding: "20px",
   },
   tocCard: {
     marginBottom: theme.spacing(3),

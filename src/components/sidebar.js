@@ -35,13 +35,17 @@ const Test = () => {
     setOpenCards((prev) => ({ ...prev, [id]: !prev[id] }));
   };
   return (
-    <Box>
+    <Box  display="flex" height="100vh" >
       <Box
+      position="fixed"
+        overflow="auto"
+        height="100vh"
         width="350px"
         style={{
           marginTop: "30px",
           marginLeft: "19px",
           backgroundColor: "#fff",
+          
         }}
       >
         {cardData.map((card) => (
@@ -70,9 +74,9 @@ const Test = () => {
 
               <Typography
                 variant="body2"
-                style={{ color: " #7b7bd3", paddingRight: "8px" }}
+                style={{ color: "#F68F3F", paddingRight: "8px" }}
               >
-                {card.count}
+                {card.sections[0].items.length}
               </Typography>
             </ListItem>
 
@@ -80,7 +84,11 @@ const Test = () => {
               <Box bgcolor="#fff">
                 <List disablePadding>
                   {card.sections[0].items.map((item, index) => {
-                    const itemSlug = item.toLowerCase().replace(/\s+/g, "-");
+                    const itemSlug = item
+                                    .toLowerCase()
+                                    .replace(/^\d+\.-/, "")       // remove leading number-dot-dash like "2.-"
+                                    .replace(/\s+/g, "-")         // replace spaces with dashes
+                                    .replace(/[^\w-]+/g, "") ;
                     const isSelected = itemSlug === featureName;
                     return (
                       <ListItem
