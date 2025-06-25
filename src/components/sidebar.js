@@ -35,17 +35,16 @@ const Test = () => {
     setOpenCards((prev) => ({ ...prev, [id]: !prev[id] }));
   };
   return (
-    <Box  display="flex" height="100vh" >
+    <Box display="flex" height="100vh">
       <Box
         position="fixed"
-        overflow="auto"
-        height="100vh"
-        width="350px"
         style={{
-          marginTop: "30px",
-          marginLeft: "19px",
+          top: 90, // pin it 30px from the top
+          left: 150, // same as your marginLeft
+          height: "calc(100vh - 90px)", // subtract that 30px so it still fits
+          width: 350,
           backgroundColor: "#fff",
-          
+          overflowY: "auto", // ← real CSS!
         }}
       >
         {cardData.map((card) => (
@@ -86,9 +85,9 @@ const Test = () => {
                   {card.sections[0].items.map((item, index) => {
                     const itemSlug = item
                       .toLowerCase()
-                                    .replace(/^\d+\.-/, "")       // remove leading number-dot-dash like "2.-"
-                                    .replace(/\s+/g, "-")         // replace spaces with dashes
-                                    .replace(/[^\w-]+/g, "") ;
+                      .replace(/^\d+\.-/, "") // remove leading number-dot-dash like "2.-"
+                      .replace(/\s+/g, "-") // replace spaces with dashes
+                      .replace(/[^\w-]+/g, "");
                     const isSelected = itemSlug === featureName;
                     return (
                       <ListItem
