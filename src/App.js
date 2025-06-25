@@ -9,7 +9,7 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css"; 
 import "@fontsource/inter/600.css"; 
 
-import FeatureDetails from "./components/FeatureDetails";
+// import FeatureDetails from "./components/FeatureDetails";
 
 const theme = createMuiTheme({
   typography: {
@@ -39,7 +39,6 @@ export default function App() {
           <Route path="/card/:id/:featureName" element={<Test />} />
         </Routes>
       </BrowserRouter>
-      {/* <Album /> */}
     </ThemeProvider>
   );
 }

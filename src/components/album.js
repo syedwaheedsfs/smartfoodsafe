@@ -723,7 +723,9 @@ export default function Album() {
                                   navigate(
                                     `/card/${id}/${item
                                       .toLowerCase()
-                                      .replace(/\s+/g, "-")}`,
+                                      .replace(/^\d+\.-/, "")       // remove leading number-dot-dash like "2.-"
+                                      .replace(/\s+/g, "-")          // replace spaces with dashes
+                                      .replace(/[^\w-]+/g, "")}`,
                                     {
                                       state: {
                                         cardTitle: section.title,

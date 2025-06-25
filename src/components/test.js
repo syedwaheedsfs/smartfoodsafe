@@ -7,6 +7,13 @@ const Test=()=>{
      const { featureName } = useParams();  
     const [openCards,setOpenCards] = useState({});
 
+    
+  // // Decode and format "audit-ready" → "Audit Ready"
+  // const formattedFeature = featureName
+  //   ?.split("-")
+  //   .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  //   .join(" ");
+
     // Find which card contains this feature
       const activeCard = cardData.find((card) =>
         card.sections[0].items.some(
