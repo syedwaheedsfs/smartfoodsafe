@@ -25,24 +25,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
 
 // Media
-import Logo from "./smartfoodlogo.png";
-// card logo
-import Smartaudit from "./assets/smartaudit.png";
-import Smartenp from "./assets/smartenp.png";
-import Smartlab from "./assets/smartlab.png";
-import Smartspec from "./assets/smartspec.png";
-import Smartcapa from "./assets/smartcapa.png";
-import Smartfarm from "./assets/smartfarm.png";
-import Smartrecall from "./assets/smartrecall.png";
-import Smartsupplier from "./assets/smartsupplier.png";
-import Smartcompliance from "./assets/smartcompliance.png";
-import Smarthaccp from "./assets/smarthaccp.png";
-import Smartrecord from "./assets/smartrecord.png";
-import Smarttraning from "./assets/smarttraning.png";
-import Smartdoc from "./assets/smartdoc.png";
-import Smartaim from "./assets/smartaim.png";
-import Smartregulatory from "./assets/smartregulatory.png";
-import Smartvisitor from "./assets/smartvisitor.png";
+import { images } from "./Assets/imageAlbum";
 // Navigate
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -212,7 +195,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartaudit
+    image:images.Smartaudit
   },
   {
     id: 2,
@@ -234,7 +217,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartenp
+    image:images.Smartenp
   },
   {
     id: 3,
@@ -256,7 +239,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartlab
+    image:images.Smartlab
   },
   {
     id: 4,
@@ -277,7 +260,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartspec
+    image:images.Smartspec
   },
   {
     id: 5,
@@ -299,7 +282,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartcapa
+    image:images.Smartcapa
   },
   {
     id: 6,
@@ -321,7 +304,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartfarm
+    image:images.Smartfarm
   },
   {
     id: 7,
@@ -343,7 +326,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartrecall
+    image:images.Smartrecall
   },
   {
     id: 8,
@@ -365,7 +348,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartsupplier
+    image:images.Smartsupplier
   },
   {
     id: 9,
@@ -387,7 +370,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartcompliance
+    image:images.Smartcompliance
   },
   {
     id: 10,
@@ -409,7 +392,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smarthaccp
+    image:images.Smarthaccp
   },
   {
     id: 11,
@@ -431,7 +414,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartrecord
+    image:images.Smartrecord
   },
   {
     id: 12,
@@ -453,7 +436,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smarttraning
+    image:images.Smarttraning
   },
   {
     id: 13,
@@ -475,7 +458,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartdoc
+    image:images.Smartdoc
   },
   {
     id: 14,
@@ -497,7 +480,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartaim
+    image:images.Smartaim
   },
   {
     id: 15,
@@ -519,7 +502,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartregulatory
+    image:images.Smartregulatory
   },
   {
     id: 16,
@@ -542,7 +525,7 @@ export const cardData = [
         
       },
     ],
-    image:Smartvisitor
+    image:images.Smartvisitor
   },
 ];
 
@@ -576,7 +559,7 @@ export default function Album() {
         <Container maxWidth="md">
           <Toolbar className={classes.toolbar}>
             <Box>
-              <img src={Logo} alt="FoodReady" className={classes.logoImg} />
+              <img src={images.Logo} alt="FoodReady" className={classes.logoImg} />
             </Box>
             <Box>
               <Button
@@ -639,7 +622,7 @@ export default function Album() {
       <main style={{ backgroundColor: "#fff" }}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {displayedCards.map(({ id, title, count, sections, description,image },idx) => (
+            {displayedCards.map(({ id, title, count, sections, description,image},idx) => (
                 <Grid item key={id} xs={12} sm={3} md={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>

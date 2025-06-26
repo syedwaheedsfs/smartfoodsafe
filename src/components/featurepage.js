@@ -12,10 +12,10 @@ import CardContent from "@material-ui/core/CardContent";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
-import Logo from "./smartfoodlogo.png";
+import { images } from "./Assets/imageAlbum";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import dashboard from "./assets/dashboard.png"
+import dashboard from "./Assets/dashboard.png"
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -157,7 +157,7 @@ export default function FileManagerPage() {
         <Container maxWidth="lg">
           <Toolbar className={classes.toolbar}>
             <Box>
-              <img src={Logo} alt="smartfoodsafe" className={classes.logoImg} />
+              <img src={images.Logo} alt="smartfoodsafe" className={classes.logoImg} />
             </Box>
             <Box className={classes.toolbarbuttons}>
               <Button
