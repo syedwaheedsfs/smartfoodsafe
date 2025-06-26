@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 
 // Layout
 import AppBar from "@material-ui/core/AppBar";
@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 // Text
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 // Controls
 import Button from "@material-ui/core/Button";
 // Cards
@@ -18,14 +17,11 @@ import CardContent from "@material-ui/core/CardContent";
 // css
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
-// Enhancer
-import InputAdornment from "@material-ui/core/InputAdornment";
-// Icon
-import SearchIcon from "@material-ui/icons/Search";
-import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
+
+import Searchbar from "./searchbar"
 
 // Media
-import Logo from "./smartfoodlogo.png";
+import Logo from "./assets/smartfoodlogo.png";
 // card logo
 import Smartaudit from "./assets/smartaudit.png";
 import Smartenp from "./assets/smartenp.png";
@@ -43,8 +39,8 @@ import Smartdoc from "./assets/smartdoc.png";
 import Smartaim from "./assets/smartaim.png";
 import Smartregulatory from "./assets/smartregulatory.png";
 import Smartvisitor from "./assets/smartvisitor.png";
-// Navigate
-import { useNavigate } from "react-router-dom";
+// History
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import {
@@ -81,11 +77,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(2),
   },
-    
+
   toolbar: {
     padding: 0,
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
 
   toolbarContainer: {
@@ -99,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
   submitBtn: {
     backgroundColor: " #7b7bd3",
     color: "#ffffff",
-    textTransform: "none",  
+    textTransform: "none",
     "&:hover": {
       backgroundColor: "#7b7bd3",
     },
@@ -117,15 +113,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  searchBarBox: {
-    border: "1px solid #ccc",
-    borderRadius: 4,
-    padding: theme.spacing(1),
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    margin: theme.spacing(2, 0),
-  },
+  // searchBarBox: {
+  //   border: "1px solid #ccc",
+  //   borderRadius: 4,
+  //   padding: theme.spacing(1),
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "space-between",
+  //   margin: theme.spacing(2, 0),
+  // },
   exploreMoreBtn: {
     color: "#F68F3F",
     textTransform: "none",
@@ -133,6 +129,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.875rem",
     borderColor: "#F68F3F",
     borderRadius: "20px",
+    marginLeft: "8px",
     padding: 8,
     "&:hover": {
       color: "#e07839",
@@ -140,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  logoImg: {
+  logo: {
     height: 50,
   },
 
@@ -150,7 +147,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     marginBottom: theme.spacing(1),
   },
-  folderlogo: {
+  productlogo: {
     width: "18%",
     height: "auto",
     marginRight: theme.spacing(1),
@@ -188,8 +185,47 @@ const useStyles = makeStyles((theme) => ({
   searchInput: {
     width: "100%",
   },
+  topbar: {
+    border: "none",
+    boxShadow: "none",
+  },
+  searchbar: {
+    backgroundColor: "#fff",
+    color: "#000",
+    boxShadow: "none",
+  },
+  cancelbtn: {
+    cursor: "pointer",
+  },
+  maincontent: {
+    backgroundColor: "#fff",
+  },
+  productheading: {
+    fontWeight: 500,
+    fontSize: "0.85rem",
+  },
+  featurecount: {
+    color: "#F68F3F",
+    fontWeight: 500,
+    fontSize: "0.90rem",
+  },
+  description: {
+    color: "gray",
+  },
+  expansiondetail: {
+    flexDirection: "column",
+    paddingLeft: 16,
+  },
+  sectionitems: {
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+  },
+  moreicon:{
+    fontSize:"small",
+    opacity: 0,
+  }
 }));
-
 
 export const cardData = [
   {
@@ -212,7 +248,7 @@ export const cardData = [
         ],
       },
     ],
-    image: Smartaudit
+    image: Smartaudit,
   },
   {
     id: 2,
@@ -234,7 +270,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartenp
+    image: Smartenp,
   },
   {
     id: 3,
@@ -256,7 +292,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartlab
+    image: Smartlab,
   },
   {
     id: 4,
@@ -277,7 +313,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartspec
+    image: Smartspec,
   },
   {
     id: 5,
@@ -299,7 +335,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartcapa
+    image: Smartcapa,
   },
   {
     id: 6,
@@ -321,7 +357,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartfarm
+    image: Smartfarm,
   },
   {
     id: 7,
@@ -343,7 +379,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartrecall
+    image: Smartrecall,
   },
   {
     id: 8,
@@ -365,7 +401,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartsupplier
+    image: Smartsupplier,
   },
   {
     id: 9,
@@ -387,7 +423,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartcompliance
+    image: Smartcompliance,
   },
   {
     id: 10,
@@ -409,7 +445,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smarthaccp
+    image: Smarthaccp,
   },
   {
     id: 11,
@@ -431,7 +467,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartrecord
+    image: Smartrecord,
   },
   {
     id: 12,
@@ -453,7 +489,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smarttraning
+    image: Smarttraning,
   },
   {
     id: 13,
@@ -475,7 +511,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartdoc
+    image: Smartdoc,
   },
   {
     id: 14,
@@ -497,7 +533,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartaim
+    image: Smartaim,
   },
   {
     id: 15,
@@ -519,7 +555,7 @@ export const cardData = [
         ],
       },
     ],
-    image:Smartregulatory
+    image: Smartregulatory,
   },
   {
     id: 16,
@@ -539,18 +575,18 @@ export const cardData = [
           "8. Employee Directory Integration",
           "9. Multilingual",
         ],
-        
       },
     ],
-    image:Smartvisitor
+    image: Smartvisitor,
   },
 ];
 
 export default function Album() {
-  const navigate = useNavigate();
+  const history = useHistory();
+
+  
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = React.useState("");
- 
 
   const displayedCards = searchTerm
     ? cardData.filter((c) => {
@@ -566,17 +602,13 @@ export default function Album() {
 
   return (
     <React.Fragment>
-      <CssBaseline /> 
+      <CssBaseline />
       {/* ← NEW TOP BAR */}
-      <AppBar
-        position="sticky"
-        color="inherit"
-        style={{ border: "none", boxShadow: "none" }}
-      >
+      <AppBar position="sticky" color="inherit" className={classes.topbar}>
         <Container maxWidth="md">
           <Toolbar className={classes.toolbar}>
             <Box>
-              <img src={Logo} alt="FoodReady" className={classes.logoImg} />
+              <img src={Logo} alt="smartfoodsafe" className={classes.logo} />
             </Box>
             <Box>
               <Button
@@ -598,64 +630,35 @@ export default function Album() {
           </Toolbar>
         </Container>
       </AppBar>
-      {/* ——— SEARCH BAR ——— */}
-      <AppBar
-        position="static"
-        style={{
-          backgroundColor: "#fff",
-          color: "#000",
-          boxShadow: "none",
-        }}
-      >
-        <Container maxWidth="md">
-           <Toolbar disableGutters>      {/*Removes the default left and right padding from the toolbar   */}
-            <TextField
-              variant="outlined"
-              size="medium"
-              placeholder="Search…"
-              className={classes.searchInput}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-                endAdornment: searchTerm && (
-                  <InputAdornment position="end">
-                    <HighlightOffOutlinedIcon
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setSearchTerm("")}
-                    />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Toolbar>
-        </Container>
-      </AppBar>
+      {/* search bar component call */}
+      {/* <Searchbar /> */}
+      <Searchbar
+    searchTerm={searchTerm}
+    setSearchTerm={setSearchTerm}
+  />
+
       {/* Cards */}
-      <main style={{ backgroundColor: "#fff" }}>
+      <main className={classes.maincontent}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {displayedCards.map(({ id, title, count, sections, description,image },idx) => (
+            {displayedCards.map(
+              ({ id, title, sections, description, image }) => (
                 <Grid item key={id} xs={12} sm={3} md={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
                       <Box className={classes.cardHeader}>
                         {/* icon + title */}
-                        <Box display="flex" alignItems="center" >
+                        <Box display="flex" alignItems="center">
                           <img
                             src={image}
                             alt="folderlogo"
-                            className={classes.folderlogo}
+                            className={classes.productlogo}
                           />
                           <Typography
                             gutterBottom
                             variant="h6"
                             component="h2"
-                            style={{ fontWeight: 500, fontSize: "0.85rem" }}
+                            className={classes.productheading}
                           >
                             {title}
                           </Typography>
@@ -664,16 +667,12 @@ export default function Album() {
                         <Typography
                           variant="h6"
                           component="span"
-                          style={{
-                            color: "#F68F3F",
-                            fontWeight: 500,
-                            fontSize: "0.90rem",
-                          }}
+                          className={classes.featurecount}
                         >
                           {sections[0].items.length}
                         </Typography>
                       </Box>
-                      <Box style={{ color: "gray" }}>{description}</Box>
+                      <Box className={classes.description}>{description}</Box>
 
                       {/* dropdown */}
                       {sections.map((section, idx) => (
@@ -683,7 +682,9 @@ export default function Album() {
                           className={classes.panel}
                         >
                           <ExpansionPanelSummary
-                            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+                            expandIcon={
+                              <ExpandMoreIcon className={classes.expandIcon} />
+                            }
                             classes={{
                               root: classes.summaryRoot,
                               content: classes.summaryContent,
@@ -692,18 +693,12 @@ export default function Album() {
                             aria-controls={`panel-${id}-${idx}-content`}
                             id={`panel-${id}-${idx}-header`}
                           >
-                            <Typography
-                              style={{ fontWeight: 500 }}
-                              className={classes.sectionHeading}
-                            >
+                            <Typography className={classes.sectionHeading}>
                               {section.heading}
                             </Typography>
                           </ExpansionPanelSummary>
                           <ExpansionPanelDetails
-                            style={{
-                              flexDirection: "column",
-                              paddingLeft: 16,
-                            }}
+                            className={classes.expansiondetail}
                           >
                             {section.items.map((item, i) => (
                               <Box
@@ -712,32 +707,18 @@ export default function Album() {
                                 alignItems="center"
                                 mb={0.5}
                                 onClick={() =>
-                                  navigate(
-                                    `/card/${id}/${slugify(item)}`,
-                                    {
-                                      state: {
-                                        cardTitle: section.title,
-                                        features: section.items.map(
-                                          (feature) => ({
-                                            name: feature, // if section.items is a list of feature names
-                                            count: 1, // or your actual count if available
-                                          })
-                                        ),
-                                      },
-                                    }
-                                  )
+                                  history.push(`/card/${id}/${slugify(item)}`, {
+                                    cardTitle: section.title,
+                                    features: section.items.map((feature) => ({
+                                      name: feature,
+                                      count: 1,
+                                    })),
+                                  })
                                 }
-                                style={{
-                                  cursor: "pointer",
-                                  display: "flex",
-                                  alignItems: "center",
-                                }}
+                                className={classes.sectionitems}
                               >
                                 {/* invisible icon for alignment */}
-                                <ExpandMoreIcon
-                                  fontSize="small"
-                                  style={{ opacity: 0 }}
-                                />
+                                <ExpandMoreIcon className={classes.moreicon} />
                                 <Typography variant="body2">{item}</Typography>
                               </Box>
                             ))}
@@ -753,7 +734,6 @@ export default function Album() {
                         size="small"
                         className={classes.exploreMoreBtn}
                         variant="outlined"
-                        style={{ marginLeft: "8px" }}
                       >
                         Explore More &gt;
                       </Button>

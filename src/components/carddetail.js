@@ -1,26 +1,25 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Button, Container, Typography, Box } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { cardData } from "./album"; 
 
 export default function CardDetail() {
-  let { id } = useParams();
-  const navigate = useNavigate();
+  const { id } = useParams();
+  const history = useHistory();
   const card = cardData.find((c) => c.id === parseInt(id, 10));
 
   if (!card) {
     return (
       <Container>
         <Typography variant="h5">Card not found.</Typography>
-        <Button onClick={() => navigate(-1)}>Go Back</Button>
+        <Button onClick={() => history.goBack()}>Go Back</Button>
       </Container>
     );
   }
 
   return (
     <Container style={{ marginTop: 24 }}>
-      <Button startIcon={<ArrowBackIcon />} onClick={() => navigate(-1)}>
+      <Button startIcon={<ArrowBackIcon />} onClick={() => history.goBack()}>
         Back
       </Button>
 

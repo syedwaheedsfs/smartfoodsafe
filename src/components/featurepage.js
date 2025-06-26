@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -12,7 +11,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
-import Logo from "./smartfoodlogo.png";
+import Logo from "./assets/smartfoodlogo.png";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import dashboard from "./assets/dashboard.png"
@@ -39,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.drawer + 1,
     backgroundColor: "#fff",
     color: "#000",
+    border: "none",
+    boxShadow: "none",
   },
   content: {
     flexGrow: 1,
@@ -46,11 +47,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "390px",
     padding: "20px",
   },
-  tocCard: {
+  introCard: {
     marginBottom: theme.spacing(3),
     backgroundColor: "#fafafa",
     maxWidth: 250,
     width: "auto",
+    boxShadow: "none",
   },
   breadcrumbs: {
     marginBottom: theme.spacing(2),
@@ -101,12 +103,12 @@ const useStyles = makeStyles((theme) => ({
       color: "#7b7bd3",
     },
   },
-  logoImg: {
+  logo: {
     height: 50,
     width: "auto",
     paddingleft: 0,
   },
-  dashboardlogo: {
+  dashboardimg: {
     height: 400,
     width: "auto",
     paddingleft: 0,
@@ -124,6 +126,23 @@ const useStyles = makeStyles((theme) => ({
   introHeading: {
     fontWeight: 800,
     marginTop: theme.spacing(4),
+  },
+  span: {
+    color: "#7b7bd3",
+    fontWeight: 700,
+    margin: "0 4px",
+  },
+  Typographylink: {
+    color: "#0096FF",
+    fontSize: "0.81rem",
+  },
+  tablecontent: {
+    fontWeight: 600,
+    color: "#F68F3F",
+    paddingLeft: "13px",
+  },
+  seconheading: {
+    fontWeight: 800,
   },
 }));
 
@@ -149,15 +168,11 @@ export default function FileManagerPage() {
     <div className={classes.root}>
       <CssBaseline />
       {/* app bar */}
-      <AppBar
-        position="fixed"
-        className={classes.appBar}
-        style={{ border: "none", boxShadow: "none" }}
-      >
+      <AppBar position="fixed" className={classes.appBar}>
         <Container maxWidth="lg">
           <Toolbar className={classes.toolbar}>
             <Box>
-              <img src={Logo} alt="smartfoodsafe" className={classes.logoImg} />
+              <img src={Logo} alt="smartfoodsafe" className={classes.logo} />
             </Box>
             <Box className={classes.toolbarbuttons}>
               <Button
@@ -187,13 +202,7 @@ export default function FileManagerPage() {
           <div className={classes.toolbar} />
           <Breadcrumbs
             aria-label="breadcrumb"
-            separator={
-              <span
-                style={{ color: "#7b7bd3", fontWeight: 700, margin: "0 4px" }}
-              >
-                &gt;
-              </span>
-            }
+            separator={<span className={classes.span}>&gt;</span>}
             className={classes.breadcrumbs}
           >
             {/* Home always first */}
@@ -216,7 +225,7 @@ export default function FileManagerPage() {
                 <Typography
                   key={to}
                   color="textPrimary"
-                  style={{ color: "#0096FF", fontSize: "0.81rem" }}
+                  className={classes.Typographylink}
                 >
                   {display}
                 </Typography>
@@ -244,12 +253,9 @@ export default function FileManagerPage() {
             Introduction
           </Typography>
 
-          <Card className={classes.tocCard} style={{ boxShadow: "none" }}>
+          <Card className={classes.introCard}>
             <CardContent>
-              <Typography
-                gutterBottom
-                style={{ fontWeight: 600, color: "#F68F3F", paddingLeft:"13px" }}
-              >
+              <Typography gutterBottom className={classes.tablecontent}>
                 Table Of Contents
               </Typography>
               <List disablePadding>
@@ -283,7 +289,11 @@ export default function FileManagerPage() {
             and manage your files.
           </Typography>
 
-          <Typography variant="h4" gutterBottom style={{ fontWeight: 800 }}>
+          <Typography
+            variant="h4"
+            gutterBottom
+            className={classes.seconheading}
+          >
             Accessing the File Manager
           </Typography>
 
@@ -299,7 +309,7 @@ export default function FileManagerPage() {
             <img
               src={dashboard}
               alt="dashboard"
-              className={classes.dashboardlogo}
+              className={classes.dashboardimg}
             />
           </Box>
         </main>

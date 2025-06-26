@@ -1,7 +1,6 @@
-import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Album from "./components/album";
 import FeaturePage from "./components/featurepage"
 import CardDetail from "./components/carddetail"
@@ -32,13 +31,23 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Album />} />
-          <Route path="/card/:id" element={<CardDetail/>} />
-          <Route                                                                     
-           path="/card/:cardId/:featureSlug"                                          
-           element={<FeaturePage />} />   
-        </Routes>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={Album}
+          />
+          <Route
+            exact
+            path="/card/:id"
+            component={CardDetail}
+          />
+          <Route
+            exact
+            path="/card/:cardId/:featureSlug"
+            component={FeaturePage}
+          />
+        </Switch>
       </BrowserRouter>
     </ThemeProvider>
   );
