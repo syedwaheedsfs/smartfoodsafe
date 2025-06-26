@@ -22,9 +22,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 // Icon
 import SearchIcon from "@material-ui/icons/Search";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
+import { useNavigate } from "react-router-dom";
 
 // Navigate
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import {
@@ -34,7 +34,7 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { slugify } from "./sideBar";
+import { slugify } from "./sidebar";
 import { cardData } from "./api";
 import AppBarComponent from "./appBar";
 

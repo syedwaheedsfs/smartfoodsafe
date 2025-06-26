@@ -18,7 +18,7 @@ import dashboard from "./Assets/dashboard.png"
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Test from "./sideBar";
+import Test from "./sidebar";
 
 const useStyles = makeStyles((theme) => ({
   root: {

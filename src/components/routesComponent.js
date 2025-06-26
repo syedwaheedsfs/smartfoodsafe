@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Album from "./album";
-import FeaturePage from "./featurePage";
-import CardDetail from "./cardDetail";
+import FeaturePage from "./featurepage";
+import CardDetail from "./carddetail";
 
 export default function RoutesComponent() {
   return (

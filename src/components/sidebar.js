@@ -47,7 +47,7 @@ const Test = () => {
         position="fixed"
         style={{
           top: 90, 
-          left: 180, 
+          left: 150, 
           height: "calc(100vh - 90px)", 
           width: 350,
           backgroundColor: "#fff",
