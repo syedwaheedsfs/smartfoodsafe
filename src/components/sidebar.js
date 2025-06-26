@@ -8,7 +8,7 @@ import {
   Collapse,
   List,
 } from "@material-ui/core";
-import { cardData } from "./album";
+import { cardData } from "./api";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Container, Typography, Box } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { cardData } from "./album"; 
+import { cardData } from "./api";
 
 export default function CardDetail() {
   let { id } = useParams();
