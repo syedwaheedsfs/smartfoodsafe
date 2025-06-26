@@ -1,5 +1,4 @@
-import React,{useState} from "react";
-
+import React from "react";
 // Layout
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -24,8 +23,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import HighlightOffOutlinedIcon from "@material-ui/icons/HighlightOffOutlined";
 
-// Media
-import { images } from "./Assets/imageAlbum";
 // Navigate
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -37,7 +34,7 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { slugify } from "./sidebar";
+import { slugify } from "./sideBar";
 import { cardData } from "./api";
 import AppBarComponent from "./appBar";
 
@@ -240,7 +237,7 @@ export default function Album() {
       <main style={{ backgroundColor: "#fff" }}>
         <Container className={classes.cardGrid} maxWidth="md">
           <Grid container spacing={2}>
-            {displayedCards.map(({ id, title, count, sections, description,image},idx) => (
+            {displayedCards.map(({ id, title, sections, description,image}) => (
                 <Grid item key={id} xs={12} sm={3} md={3}>
                   <Card className={classes.card}>
                     <CardContent className={classes.cardContent}>
@@ -320,8 +317,7 @@ export default function Album() {
                                         cardTitle: section.title,
                                         features: section.items.map(
                                           (feature) => ({
-                                            name: feature, // if section.items is a list of feature names
-                                            count: 1, // or your actual count if available
+                                            name: feature, 
                                           })
                                         ),
                                       },

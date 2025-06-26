@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Container, Typography, Box } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -31,7 +31,7 @@ export default function CardDetail() {
         <Typography variant="subtitle1" gutterBottom>
           {card.description}
         </Typography>
-        {/* Render whatever details you like: sections, charts, lists */}
+  
         {card.sections.map((section, idx) => (
           <Box key={idx} mt={2}>
             <Typography variant="h6">{section.heading}</Typography>

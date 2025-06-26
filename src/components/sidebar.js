@@ -46,12 +46,12 @@ const Test = () => {
       <Box
         position="fixed"
         style={{
-          top: 90, // pin it 30px from the top
-          left: 180, // same as your marginLeft
-          height: "calc(100vh - 90px)", // subtract that 30px so it still fits
+          top: 90, 
+          left: 180, 
+          height: "calc(100vh - 90px)", 
           width: 350,
           backgroundColor: "#fff",
-          overflowY: "auto", // ← real CSS!
+          overflowY: "auto", 
         }}
       >
         {cardData.map((card) => (

@@ -1,5 +1,4 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -19,7 +18,7 @@ import dashboard from "./Assets/dashboard.png"
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Test from "./sidebar";
+import Test from "./sideBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -137,7 +136,6 @@ const formatLabel = (segment) => {
 
 export default function FileManagerPage() {
   const classes = useStyles();
-  const theme = useTheme();
   
   const location = useLocation();
   const segments = location.pathname
@@ -272,7 +270,6 @@ export default function FileManagerPage() {
                 <ListItem>
                   <ListItemText primary="3. Searching for Files" />
                 </ListItem>
-                {/* further TOC items */}
               </List>
             </CardContent>
           </Card>
