@@ -1,8 +1,6 @@
 import React from "react";
 
 // Layout
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -18,27 +16,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Searchbar from "./searchbar"
+import Searchbar from "./searchBar";
 
-// Media
-import Logo from "./assets/smartfoodlogo.png";
-// card logo
-import Smartaudit from "./assets/smartaudit.png";
-import Smartenp from "./assets/smartenp.png";
-import Smartlab from "./assets/smartlab.png";
-import Smartspec from "./assets/smartspec.png";
-import Smartcapa from "./assets/smartcapa.png";
-import Smartfarm from "./assets/smartfarm.png";
-import Smartrecall from "./assets/smartrecall.png";
-import Smartsupplier from "./assets/smartsupplier.png";
-import Smartcompliance from "./assets/smartcompliance.png";
-import Smarthaccp from "./assets/smarthaccp.png";
-import Smartrecord from "./assets/smartrecord.png";
-import Smarttraning from "./assets/smarttraning.png";
-import Smartdoc from "./assets/smartdoc.png";
-import Smartaim from "./assets/smartaim.png";
-import Smartregulatory from "./assets/smartregulatory.png";
-import Smartvisitor from "./assets/smartvisitor.png";
 // History
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -50,8 +29,9 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { slugify } from "./sidebar";
-
+import { slugify } from "./sideBar";
+import { cardData } from "./api";
+import AppBarComponent from "./appBar";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -113,15 +93,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  // searchBarBox: {
-  //   border: "1px solid #ccc",
-  //   borderRadius: 4,
-  //   padding: theme.spacing(1),
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "space-between",
-  //   margin: theme.spacing(2, 0),
-  // },
   exploreMoreBtn: {
     color: "#F68F3F",
     textTransform: "none",
@@ -169,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
   summaryContent: {
     display: "flex",
     alignItems: "center",
-    margin: 0, // kill the MUI default margin
+    margin: 0,
     justifyContent: "flex-start",
   },
   expandIcon: {
@@ -221,370 +192,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  moreicon:{
-    fontSize:"small",
+  moreicon: {
+    fontSize: "small",
     opacity: 0,
-  }
+  },
 }));
-
-export const cardData = [
-  {
-    id: 1,
-    title: "SMART AUDIT",
-    description: "Accurate, compliant audit solution.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Audit Ready",
-          "2. Digital Audit Records",
-          "3. Offline Auditing",
-          "4. NC Management",
-          "5. Scores and Rating",
-          "6. Audit Scheduling",
-          "7. Dashboard and Reporting",
-          "8. Multi Language",
-          "9. Improve Compliance Gaps",
-        ],
-      },
-    ],
-    image: Smartaudit,
-  },
-  {
-    id: 2,
-    title: "SMART EMP",
-    description: "Streamlined environmental monitoring processes.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Digital Layout and Mapping",
-          "2. Scheduling (Planned & Random)",
-          "3. EMP Process automation",
-          "4. Corrective Action Management",
-          "5. Built in FDA Listeria Guidelines",
-          "6. Heat and Harborage Site Map",
-          "7. Real-Time Data Analytics",
-          "8. Workflow",
-          "9. Notification",
-        ],
-      },
-    ],
-    image: Smartenp,
-  },
-  {
-    id: 3,
-    title: "SMART LAB",
-    description: "Automated, precise lab operations.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Laboratory Management",
-          "2. Customer Portal",
-          "3. Quote Management",
-          "4. GMP Compliant Software",
-          "5. Laboratory Integration",
-          "6. Invoicing",
-          "7. Dashboard and Reporting",
-          "8. Analysis Planning",
-          "9. Lab Asset Management",
-        ],
-      },
-    ],
-    image: Smartlab,
-  },
-  {
-    id: 4,
-    title: "SMART SPECIFICATION",
-    description: "Ensure quality with standardized specifications.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Digital Specifications",
-          "2. Built-In Product Characteristics",
-          "3. Supplier To Material Linking",
-          "4. Nutrition Facts Labels",
-          "5. Bill of Materials Linking",
-          "6. Alerts and Notifications",
-          "7. Dashboard and Reporting",
-          "8. Global Allergen List",
-        ],
-      },
-    ],
-    image: Smartspec,
-  },
-  {
-    id: 5,
-    title: "SMART CAPA",
-    description: "Resolve issues, ensure compliance.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. CAPA Management",
-          "2. Complaint Management",
-          "3. Product Hold and Release",
-          "4. Deviations Management",
-          "5. Root Cause Analysis",
-          "6. Corrective Action Management",
-          "7. Dashboard",
-          "8. Effectiveness Review",
-          "9. Reporting & Trend Analysis",
-        ],
-      },
-    ],
-    image: Smartcapa,
-  },
-  {
-    id: 6,
-    title: "SMART FARM",
-    description: "Digitized farm management for efficiency.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Field Mapping",
-          "2. Crop Management",
-          "3. End-To-End Solutions",
-          "4. Post Reap Management",
-          "5. Blockchain-Enabled Traceability",
-          "6. Weather Integration",
-          "7. Dashboard and Reporting",
-          "8. Agronomist and Grower Portal",
-          "9. Offline Mobile Application",
-        ],
-      },
-    ],
-    image: Smartfarm,
-  },
-  {
-    id: 7,
-    title: "SMART RECALL",
-    description: "Efficient and reliable recall management.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Single Source of Recall Data",
-          "2. Recall Alerts",
-          "3. Customized Notifications",
-          "4. Food Safety Trends",
-          "5. Searchable Database",
-          "6. Dashboard",
-          "7. Recall Management",
-          "8. Mock Recall",
-          "9. Regulatory Compliance",
-        ],
-      },
-    ],
-    image: Smartrecall,
-  },
-  {
-    id: 8,
-    title: "SMART SUPPLIER",
-    description: "Enhance collaboration with supplier tools.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Supplier Risk Assessment",
-          "2. Approval and Performance",
-          "3. Supplier Engagement Portal",
-          "4. Approval Scores & Ratings",
-          "5. Improved Communication",
-          "6. Non-Compliance Management",
-          "7. Dashboard and Reporting",
-          "8. Alerts and Notifications",
-          "9. Cost Savings",
-        ],
-      },
-    ],
-    image: Smartsupplier,
-  },
-  {
-    id: 9,
-    title: "SMART COMPLIANCE",
-    description: "Track and maintain regulatory adherencence",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Automate Product Release",
-          "2. Material & Product Verification",
-          "3. Purchasing Document Management",
-          "4. Real Time Product Compliance",
-          "5. Save Time and Money",
-          "6. Manage Product Non compliance",
-          "7. Generate Compliance Certificate",
-          "8. Effectiveness Review",
-          "9. Improved Communication",
-        ],
-      },
-    ],
-    image: Smartcompliance,
-  },
-  {
-    id: 10,
-    title: "SMART HACCP",
-    description: "Simplify hazard analysis for safety.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Digital HACCP",
-          "2. Process Flow Diagrams",
-          "3. End-To-End Solutions",
-          "4. Hazard Database",
-          "5. Smart Linking",
-          "6. CCP/PCP Automation",
-          "7. Dashboard and Reporting",
-          "8. HACCP Reassessment",
-          "9. Customized Risk Matrix",
-        ],
-      },
-    ],
-    image: Smarthaccp,
-  },
-  {
-    id: 11,
-    title: "SMART RECORD",
-    description: "Accurate and effortless data recording.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Online Form Builder",
-          "2. Conditions and Validations",
-          "3. User Experience",
-          "4. Advanced Search",
-          "5. Traceability",
-          "6. Offline Record Keeping",
-          "7. Voice Integration",
-          "8. Bluetooth Integration",
-          "9. IoT Integration",
-        ],
-      },
-    ],
-    image: Smartrecord,
-  },
-  {
-    id: 12,
-    title: "SMART TRAINING",
-    description: "Enable teams with digital learning.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "Course Creation",
-          "Self Learning",
-          "Group Learning",
-          "Training Skill Matrix",
-          "Onboarding Training",
-          "Refresher Training",
-          "Dashboard and Reporting",
-          "Scheduling",
-          "Training Library",
-        ],
-      },
-    ],
-    image: Smarttraning,
-  },
-  {
-    id: 13,
-    title: "SMART DOCS",
-    description: "Secure, centralized document management.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Document Creation",
-          "2. Document Life Cycle",
-          "3. 21 CFR Part 11 Compliant",
-          "4. Advanced Search",
-          "5. Global Quality & Food Safety Standards",
-          "6. Audit Readiness",
-          "7. Dashboard and Reporting",
-          "8. Data Backup and Export",
-          "9. Efficient Document Management",
-        ],
-      },
-    ],
-    image: Smartdoc,
-  },
-  {
-    id: 14,
-    title: "SMART IAM",
-    description: "Manage identity and access seamlessly.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. User Management",
-          "2. Role Management",
-          "3. Access Control",
-          "4. Multi site and Corporate Access",
-          "5. Admin Panel",
-          "6. CCP/PCP Automation",
-          "7. Master Data Bulk Upload",
-          "8. Security",
-          "9. Custom Role",
-        ],
-      },
-    ],
-    image: Smartaim,
-  },
-  {
-    id: 15,
-    title: "SMART REGULATORY",
-    description: "Streamline and simplify regulatory tasks.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. One-Stop Solution",
-          "2. Centralize Regulatory Data",
-          "3. Country and Commodity Specific Requirements",
-          "4. Regulatory Update",
-          "5. Searchable Database",
-          "6. Alerts and Notifications",
-          "7. Improved Visibility",
-          "8. Reduce Workload",
-          "9. Risk Assessment Models",
-        ],
-      },
-    ],
-    image: Smartregulatory,
-  },
-  {
-    id: 16,
-    title: "SMART VISITOR",
-    description: "Streamlined visitor onboarding process.",
-    sections: [
-      {
-        heading: "Features",
-        items: [
-          "1. Contactless Check-In",
-          "2. Digital Training & Agreements",
-          "3. Customized Look & Feel Design",
-          "4. Photo & ID Capture",
-          "5. Two-Way Communications",
-          "6. Pre-Registration and Recurring Visitors",
-          "7. Visitor Reports",
-          "8. Employee Directory Integration",
-          "9. Multilingual",
-        ],
-      },
-    ],
-    image: Smartvisitor,
-  },
-];
 
 export default function Album() {
   const history = useHistory();
 
-  
   const classes = useStyles();
   const [searchTerm, setSearchTerm] = React.useState("");
 
@@ -604,38 +220,9 @@ export default function Album() {
     <React.Fragment>
       <CssBaseline />
       {/* ← NEW TOP BAR */}
-      <AppBar position="sticky" color="inherit" className={classes.topbar}>
-        <Container maxWidth="md">
-          <Toolbar className={classes.toolbar}>
-            <Box>
-              <img src={Logo} alt="smartfoodsafe" className={classes.logo} />
-            </Box>
-            <Box>
-              <Button
-                variant="contained"
-                size="small"
-                className={classes.submitBtn}
-              >
-                Submit a request
-              </Button>
-
-              <Button
-                variant="outlined"
-                size="small"
-                className={classes.logoutBtn}
-              >
-                Logout
-              </Button>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <AppBarComponent />
       {/* search bar component call */}
-      {/* <Searchbar /> */}
-      <Searchbar
-    searchTerm={searchTerm}
-    setSearchTerm={setSearchTerm}
-  />
+      <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {/* Cards */}
       <main className={classes.maincontent}>

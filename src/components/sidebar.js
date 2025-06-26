@@ -8,7 +8,7 @@ import {
   Collapse,
   List,
 } from "@material-ui/core";
-import { cardData } from "./album";
+import { cardData } from "./api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -54,8 +54,8 @@ export const slugify = (str) =>
      (str || "")
     .toString()
     .toLowerCase()
-    .replace(/^\d+\.\s*/, "")   // remove leading number-dot-space
-    .replace(/\s+/g, "-")       // replace spaces with hyphens
+    .replace(/^\d+\.\s*/, "")  
+    .replace(/\s+/g, "-")       
     .trim();
 
 const Test = () => {

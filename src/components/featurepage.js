@@ -11,14 +11,14 @@ import CardContent from "@material-ui/core/CardContent";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
-import Logo from "./assets/smartfoodlogo.png";
+import Logo from "./Assets/smartfoodlogo.png";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import dashboard from "./assets/dashboard.png"
+import dashboard from "./Assets/dashboard.png";
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Test from "./sidebar";
+import Test from "./sideBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -146,23 +146,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const formatLabel = (segment) => {
-  return segment
-    .replace(/-/g, " ") 
-    .replace(/\b\w/g, (l) => l.toUpperCase()); 
+  return segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
 };
-
 
 export default function FileManagerPage() {
   const classes = useStyles();
   const theme = useTheme();
-  
+
   const location = useLocation();
   const segments = location.pathname
     .split("/")
     .filter((seg) => seg && seg.toLowerCase() !== "card");
-
 
   return (
     <div className={classes.root}>
