@@ -9,18 +9,57 @@ import {
   List,
 } from "@material-ui/core";
 import { cardData } from "./api";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles((theme) => ({
+  sidebarbox: {
+    position: "fixed",
+    top: 90,
+    left: 150,
+    height: "calc(100vh - 90px)",
+    width: 350,
+    backgroundColor: "#fff",
+    overflowY: "auto",
+  },
+  listItems: {
+    paddingTop: 3,
+    paddingBottom: 7,
+    paddingLeft: 8,
+    paddingRight: 8,
+  },
+  listItemstxt: {
+    fontSize: "14px",
+  },
+  count: {
+    color: "#F68F3F",
+    paddingRight: "8px",
+  },
+  Avatar: {
+    width: 32,
+    height: 32,
+  },
+  featuretems: {
+    paddingLeft: 32,
+  },
+  featurebox:{
+    bgcolor:"#fff",
+  },
+}));
+
 
 export const slugify = (str) =>
      (str || "")
     .toString()
     .toLowerCase()
-    .replace(/^\d+\.\s*/, "")   // remove leading number-dot-space
-    .replace(/\s+/g, "-")       // replace spaces with hyphens
+    .replace(/^\d+\.\s*/, "")  
+    .replace(/\s+/g, "-")       
     .trim();
 
 const Test = () => {
+  const classes = useStyles();
   const { featureSlug } = useParams();
   const [openCards, setOpenCards] = useState({});
 
@@ -43,17 +82,7 @@ const Test = () => {
   };
   return (
     <Box display="flex" height="100vh">
-      <Box
-        position="fixed"
-        style={{
-          top: 90, 
-          left: 150, 
-          height: "calc(100vh - 90px)", 
-          width: 350,
-          backgroundColor: "#fff",
-          overflowY: "auto", 
-        }}
-      >
+      <Box className={classes.sidebarbox}>
         {cardData.map((card) => (
           <Box key={card.id}>
             <ListItem
@@ -61,33 +90,26 @@ const Test = () => {
               onClick={() => toggleCard(card.id)}
               style={{
                 borderRight: openCards[card.id] ? "3px solid #3f51b5" : "none",
-                paddingTop: 3,
-                paddingBottom: 7,
-                paddingLeft: 8,
-                paddingRight: 8,
               }}
+              className={classes.listItems}
             >
               <ListItemAvatar>
-                <Avatar src={card.image} style={{ width: 32, height: 32 }} />
+                <Avatar src={card.image} className={classes.Avatar} />
               </ListItemAvatar>
 
               <ListItemText
                 primary={card.title}
-                primaryTypographyProps={{
-                  style: { fontSize: "14px" },
-                }}
+                primaryTypographyProps={{}}
+                className={classes.listItemstxt}
               />
 
-              <Typography
-                variant="body2"
-                style={{ color: "#F68F3F", paddingRight: "8px" }}
-              >
+              <Typography variant="body2" className={classes.count}>
                 {card.sections[0].items.length}
               </Typography>
             </ListItem>
 
             <Collapse in={openCards[card.id]} unmountOnExit timeout="auto">
-              <Box bgcolor="#fff">
+              <Box className={classes.featurebox}>
                 <List disablePadding>
                   {card.sections[0].items.map((item, index) => {
                     const itemSlug = slugify(item);
@@ -97,7 +119,7 @@ const Test = () => {
                         key={index}
                         button
                         selected={isSelected}
-                        style={{ paddingLeft: 32 }}
+                        className={classes.featuretems}
                       >
                         <ListItemText primary={item} />
                       </ListItem>

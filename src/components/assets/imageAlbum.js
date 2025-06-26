@@ -17,22 +17,22 @@ import Smartaim from "./smartaim.png";
 import Smartregulatory from "./smartregulatory.png";
 import Smartvisitor from "./smartvisitor.png";
 
-export  const images = {
-    Logo,
-    Smartaudit,
-    Smartenp,
-    Smartlab,
-    Smartspec,
-    Smartcapa,
-    Smartfarm,
-    Smartrecall,
-    Smartsupplier,
-    Smartcompliance,
-    Smarthaccp,
-    Smartrecord,
-    Smarttraning,
-    Smartdoc,
-    Smartaim,
-    Smartregulatory,
-    Smartvisitor
-}
+export const images = {
+  Logo,
+  Smartaudit,
+  Smartenp,
+  Smartlab,
+  Smartspec,
+  Smartcapa,
+  Smartfarm,
+  Smartrecall,
+  Smartsupplier,
+  Smartcompliance,
+  Smarthaccp,
+  Smartrecord,
+  Smarttraning,
+  Smartdoc,
+  Smartaim,
+  Smartregulatory,
+  Smartvisitor,
+};

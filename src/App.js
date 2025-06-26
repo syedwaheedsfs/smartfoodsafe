@@ -1,11 +1,11 @@
-import RoutesComponent from "./components/routesComponent.js";
-import { BrowserRouter } from "react-router-dom";
-
+import { BrowserRouter} from "react-router-dom";
+import RouteComponent from "./components/routeComponent";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <RoutesComponent />
-    </BrowserRouter>
+      <BrowserRouter>
+        <RouteComponent />
+      </BrowserRouter>
+    
   );
 }

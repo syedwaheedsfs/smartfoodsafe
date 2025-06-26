@@ -1,5 +1,4 @@
 import { images } from "./Assets/imageAlbum";
-
 export const cardData = [
   {
     id: 1,
@@ -21,7 +20,7 @@ export const cardData = [
         ],
       },
     ],
-    image: images.Smartaudit
+    image: images.Smartaudit,
   },
   {
     id: 2,
@@ -43,7 +42,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartenp
+    image: images.Smartenp,
   },
   {
     id: 3,
@@ -65,7 +64,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartlab
+    image: images.Smartlab,
   },
   {
     id: 4,
@@ -86,7 +85,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartspec
+    image: images.Smartspec,
   },
   {
     id: 5,
@@ -108,7 +107,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartcapa
+    image: images.Smartcapa,
   },
   {
     id: 6,
@@ -130,7 +129,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartfarm
+    image: images.Smartfarm,
   },
   {
     id: 7,
@@ -152,7 +151,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartrecall
+    image: images.Smartrecall,
   },
   {
     id: 8,
@@ -174,7 +173,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartsupplier
+    image: images.Smartsupplier,
   },
   {
     id: 9,
@@ -196,7 +195,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartcompliance
+    image: images.Smartcompliance,
   },
   {
     id: 10,
@@ -218,7 +217,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smarthaccp
+    image: images.Smarthaccp,
   },
   {
     id: 11,
@@ -240,7 +239,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartrecord
+    image: images.Smartrecord,
   },
   {
     id: 12,
@@ -262,7 +261,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smarttraning
+    image: images.Smarttraning,
   },
   {
     id: 13,
@@ -284,7 +283,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartdoc
+    image: images.Smartdoc,
   },
   {
     id: 14,
@@ -306,7 +305,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartaim
+    image: images.Smartaim,
   },
   {
     id: 15,
@@ -328,7 +327,7 @@ export const cardData = [
         ],
       },
     ],
-    image:images.Smartregulatory
+    image: images.Smartregulatory,
   },
   {
     id: 16,
@@ -348,10 +347,8 @@ export const cardData = [
           "8. Employee Directory Integration",
           "9. Multilingual",
         ],
-        
       },
     ],
-    image:images.Smartvisitor
+    image: images.Smartvisitor,
   },
 ];
-
