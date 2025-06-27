@@ -19,6 +19,7 @@ import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Test from "./sideBar";
+import { images } from "./Assets/imageAlbum";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -144,6 +145,37 @@ const useStyles = makeStyles((theme) => ({
   seconheading: {
     fontWeight: 800,
   },
+  pdfbtn: {
+    backgroundColor: " #FFA500",
+    marginBottom:"20px",
+    "&:hover": {
+      backgroundColor: " #FF8C00",
+    },
+  },
+  Heading:{
+    marginTop:"20px"
+  },
+  pdfBox:{
+    border: "1px solid #000000"
+  },
+  youTubeLinkParent:{
+  position: 'relative',
+  paddingTop: '56.25%', // 16:9 aspect ratio
+  height: 0,
+  overflow: 'hidden',
+  borderRadius: 8,
+  marginBottom: 16,
+  marginTop:"20px"
+  },
+  youTubeLink:{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    border: 0,
+    borderRadius: 2,
+  }
 }));
 
 const formatLabel = (segment) => {
@@ -153,6 +185,8 @@ const formatLabel = (segment) => {
 export default function FileManagerPage() {
   const classes = useStyles();
   const theme = useTheme();
+
+  const fileUrl = "https://calibre-ebook.com/downloads/demos/demo.docx";
 
   const location = useLocation();
   const segments = location.pathname
@@ -306,6 +340,69 @@ export default function FileManagerPage() {
               className={classes.dashboardimg}
             />
           </Box>
+            {/* PDF */}
+          <Box>
+            <Typography variant="h4" gutterBottom className={classes.Heading}>
+              Accessing the PDF
+            </Typography>
+            <Typography paragraph gutterBottom>
+              Below you’ll find a detailed summary of the document’s contents,
+              including metadata extraction, page thumbnails, and download
+              links.
+            </Typography>
+            <Button 
+              className={classes.pdfbtn}
+              variant="conatained"
+              component="a"
+              href={images.Pdf}
+              download
+            >
+              Download Pdf
+            </Button>
+            <Box className={classes.pdfBox}
+              component="object"
+              data={images.Pdf}
+              type="application/pdf"
+              width="100%"
+              height="500px"
+            ></Box>
+          </Box>
+          {/* YouTube Vedio Link */}
+           <Typography variant="h4" gutterBottom className={classes.Heading}>
+              Accessing the YouTube Vedio
+            </Typography>
+            <Typography paragraph gutterBottom>
+              Below you’ll find a detailed summary of the document’s contents,
+              including metadata extraction, page thumbnails, and download
+              links.
+            </Typography>
+            <Box className={classes.youTubeLinkParent} >
+              <Box
+              className={classes.youTubeLink}
+              component="iframe"
+              src="https://www.youtube.com/embed/D0UnqGm_miA?si=krm-E_1MSPWzO_Wc"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+           </Box>
+          {/* Word File */}
+          <Typography variant="h4" gutterBottom className={classes.Heading}>
+              Accessing the word document
+            </Typography>
+            <Typography paragraph gutterBottom>
+              Below you’ll find a detailed summary of the document’s contents,
+              including metadata extraction, page thumbnails, and download
+              links.
+            </Typography>
+          
+          <Box
+            component="iframe"
+            src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl)}`}
+            width="100%"
+            height="500px"
+          />
         </main>
       </Container>
     </div>

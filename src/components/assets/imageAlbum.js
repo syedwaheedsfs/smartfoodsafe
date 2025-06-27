@@ -16,6 +16,7 @@ import Smartdoc from "./smartdoc.png";
 import Smartaim from "./smartaim.png";
 import Smartregulatory from "./smartregulatory.png";
 import Smartvisitor from "./smartvisitor.png";
+import Pdf from "./dummypdf.pdf"
 
 export const images = {
   Logo,
@@ -35,4 +36,5 @@ export const images = {
   Smartaim,
   Smartregulatory,
   Smartvisitor,
+  Pdf
 };
