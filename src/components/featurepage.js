@@ -307,6 +307,44 @@ export default function FileManagerPage() {
               className={classes.dashboardimg}
             />
           </Box>
+
+          {/* PPT */}
+          <Box>
+            <Typography variant="h4" gutterBottom>
+              PPT
+            </Typography>
+
+            <Typography paragraph>
+              Support for PPT, this is the section for PPT
+            </Typography>
+
+            <Box
+              component="object"
+              data="https://docs.google.com/gview?url=https://www.adobe.com/support/ovation/ts/docs/ovation_test_show.ppt&embedded=true"
+              title="PPT"
+              width="100%"
+              height="500px"
+            />
+          </Box>
+
+          {/* EXCEL*/}
+          <Box>
+            <Typography variant="h4" gutterBottom>
+              EXCEL
+            </Typography>
+
+            <Typography paragraph>
+              Support for Excel, this is the section for excel
+            </Typography>
+
+            <Box
+              component="iframe"
+              src="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit?gid=0#gid=0"
+              title="Excel Viewer"
+              width="100%"
+              height="500px"
+            />
+          </Box>
         </main>
       </Container>
     </div>
