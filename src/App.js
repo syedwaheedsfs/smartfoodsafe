@@ -21,10 +21,9 @@ const theme = createTheme({
     secondary: { main: "#f50057" },
   },
 });
-
 export default function App() {
   return (
-       <ThemeProvider theme={theme}>        
+    <ThemeProvider theme={theme}>        
       <BrowserRouter>
         <RouteComponent />
       </BrowserRouter>
