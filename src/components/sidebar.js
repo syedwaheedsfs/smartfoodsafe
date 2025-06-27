@@ -12,7 +12,7 @@ import { cardData } from "./api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   sidebarbox: {
@@ -112,16 +112,19 @@ const Test = () => {
               <Box className={classes.featurebox}>
                 <List disablePadding>
                   {card.sections[0].items.map((item, index) => {
-                    const itemSlug = slugify(item);
+                    const itemSlug = slugify(item.feature);
+                    const slug = slugify(item.feature);
                     const isSelected = itemSlug === featureSlug;
                     return (
                       <ListItem
                         key={index}
                         button
+                        component={RouterLink}
+                        to={`/card/${card.id}/${slug}`}
                         selected={isSelected}
                         className={classes.featuretems}
                       >
-                        <ListItemText primary={item} />
+                        <ListItemText primary={item.feature} />
                       </ListItem>
                     );
                   })}

@@ -293,19 +293,35 @@ export default function Album() {
                                 alignItems="center"
                                 mb={0.5}
                                 onClick={() =>
-                                  history.push(`/card/${id}/${slugify(item)}`, {
-                                    cardTitle: section.title,
-                                    features: section.items.map((feature) => ({
-                                      name: feature,
-                                      count: 1,
-                                    })),
-                                  })
+                                  // history.push(`/card/${id}/${slugify(item)}`, {
+                                  //   cardTitle: section.title,
+                                  //   features: section.items.map((feature) => ({
+                                  //     name: feature,
+                                  //     count: 1,
+                                  //   })),
+                                  // })
+                                  history.push(
+                                    `/card/${id}/${slugify(item.feature)}`, // slugify the feature string
+                                    {
+                                      cardTitle: section.heading,
+                                      features: section.items.map(
+                                        (featureItem) => ({
+                                          name: featureItem.feature, // if you need to pass feature names
+                                          count:
+                                            featureItem.tablecontent.length,
+                                        })
+                                      ),
+                                    }
+                                  )
                                 }
                                 className={classes.sectionitems}
                               >
                                 {/* invisible icon for alignment */}
                                 <ExpandMoreIcon className={classes.moreicon} />
-                                <Typography variant="body2">{item}</Typography>
+                                <Typography variant="body2">
+                                  {" "}
+                                  {item.feature}{" "}
+                                </Typography>
                               </Box>
                             ))}
                           </ExpansionPanelDetails>

@@ -20,7 +20,9 @@ import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Test from "./sideBar";
 import { images } from "./Assets/imageAlbum";
-
+import { cardData } from "./api"; 
+import { slugify } from "./sideBar";
+import { useParams } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -182,16 +184,39 @@ const formatLabel = (segment) => {
   return segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
 };
 
+export function normalize(str) {
+  return (
+    (str || "")
+      .toString()
+      .toLowerCase()
+      // remove non-word chars entirely
+      .replace(/[^\w]+/g, "")
+      .trim()
+  );
+}
+
 export default function FileManagerPage() {
   const classes = useStyles();
   const theme = useTheme();
+  const location = useLocation();
+
+  const { cardId, featureSlug } = useParams();
+
+  // find matching card
+  const card = cardData.find((c) => c.id.toString() === cardId);
+  // if (!card) return <Typography>Card not found</Typography>;
+
+  // find matching feature
+  const feature = card.sections[0].items.find(
+    (item) => normalize(item.feature) === normalize(featureSlug)
+  );
+  // if (!feature) return <Typography>Feature not found</Typography>;
 
   const fileUrl = "https://calibre-ebook.com/downloads/demos/demo.docx";
 
-  const location = useLocation();
-  const segments = location.pathname
-    .split("/")
-    .filter((seg) => seg && seg.toLowerCase() !== "card");
+  // const segments = location.pathname
+  //   .split("/")
+  //   .filter((seg) => seg && seg.toLowerCase() !== "card");
 
   return (
     <div className={classes.root}>
@@ -229,45 +254,31 @@ export default function FileManagerPage() {
 
         <main className={classes.content}>
           <div className={classes.toolbar} />
+
           <Breadcrumbs
             aria-label="breadcrumb"
             separator={<span className={classes.span}>&gt;</span>}
             className={classes.breadcrumbs}
           >
-            {/* Home always first */}
+            {/* 1) Home */}
             <Link component={RouterLink} to="/" color="inherit">
               Home
             </Link>
 
-            {segments.map((seg, idx) => {
-              const isLast = idx === segments.length - 1;
+            {/* 2) Card title */}
+            <Link component={RouterLink} to={`/card/${cardId}`} color="inherit">
+              {card.title}
+            </Link>
 
-              const to =
-                idx === 0
-                  ? `/card/${seg}`
-                  : `/card/${segments[0]}/${segments[1]}`;
-
-              const display =
-                idx === 0 ? seg : formatLabel(seg.replace(/^\d+\.?\s*/, ""));
-
-              return isLast ? (
-                <Typography
-                  key={to}
-                  color="textPrimary"
-                  className={classes.Typographylink}
-                >
-                  {display}
-                </Typography>
-              ) : (
-                <Link component={RouterLink} to={to} color="inherit" key={to}>
-                  {display}
-                </Link>
-              );
-            })}
+            {/* 3) Current feature (no link) */}
+            <Typography color="textPrimary" className={classes.Typographylink}>
+              {feature.feature}
+            </Typography>
           </Breadcrumbs>
 
           <Typography variant="h4" gutterBottom className={classes.pageTitle}>
-            ACCESSING THE FILE MANAGER
+            {/* ACCESSING THE FILE MANAGER */}
+            {feature.feature}
           </Typography>
           <Typography
             variant="body2"
@@ -287,7 +298,7 @@ export default function FileManagerPage() {
               <Typography gutterBottom className={classes.tablecontent}>
                 Table Of Contents
               </Typography>
-              <List disablePadding>
+              {/* <List disablePadding>
                 <ListItem>
                   <ListItemText primary="1. Introduction" />
                 </ListItem>
@@ -306,6 +317,13 @@ export default function FileManagerPage() {
                 <ListItem>
                   <ListItemText primary="3. Searching for Files" />
                 </ListItem>
+              </List> */}
+              <List disablePadding>
+                {feature.tablecontent.map((label, idx) => (
+                  <ListItem key={idx}>
+                    <ListItemText primary={`${idx + 1}. ${label}`} />
+                  </ListItem>
+                ))}
               </List>
             </CardContent>
           </Card>
@@ -340,7 +358,7 @@ export default function FileManagerPage() {
               className={classes.dashboardimg}
             />
           </Box>
-            {/* PDF */}
+          {/* PDF */}
           <Box>
             <Typography variant="h4" gutterBottom className={classes.Heading}>
               Accessing the PDF
@@ -350,7 +368,7 @@ export default function FileManagerPage() {
               including metadata extraction, page thumbnails, and download
               links.
             </Typography>
-            <Button 
+            <Button
               className={classes.pdfbtn}
               variant="conatained"
               component="a"
@@ -359,7 +377,8 @@ export default function FileManagerPage() {
             >
               Download Pdf
             </Button>
-            <Box className={classes.pdfBox}
+            <Box
+              className={classes.pdfBox}
               component="object"
               data={images.Pdf}
               type="application/pdf"
@@ -368,16 +387,15 @@ export default function FileManagerPage() {
             ></Box>
           </Box>
           {/* YouTube Vedio Link */}
-           <Typography variant="h4" gutterBottom className={classes.Heading}>
-              Accessing the YouTube Vedio
-            </Typography>
-            <Typography paragraph gutterBottom>
-              Below you’ll find a detailed summary of the document’s contents,
-              including metadata extraction, page thumbnails, and download
-              links.
-            </Typography>
-            <Box className={classes.youTubeLinkParent} >
-              <Box
+          <Typography variant="h4" gutterBottom className={classes.Heading}>
+            Accessing the YouTube Vedio
+          </Typography>
+          <Typography paragraph gutterBottom>
+            Below you’ll find a detailed summary of the document’s contents,
+            including metadata extraction, page thumbnails, and download links.
+          </Typography>
+          <Box className={classes.youTubeLinkParent}>
+            <Box
               className={classes.youTubeLink}
               component="iframe"
               src="https://www.youtube.com/embed/D0UnqGm_miA?si=krm-E_1MSPWzO_Wc"
@@ -386,20 +404,21 @@ export default function FileManagerPage() {
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
-           </Box>
+          </Box>
           {/* Word File */}
           <Typography variant="h4" gutterBottom className={classes.Heading}>
-              Accessing the word document
-            </Typography>
-            <Typography paragraph gutterBottom>
-              Below you’ll find a detailed summary of the document’s contents,
-              including metadata extraction, page thumbnails, and download
-              links.
-            </Typography>
-          
+            Accessing the word document
+          </Typography>
+          <Typography paragraph gutterBottom>
+            Below you’ll find a detailed summary of the document’s contents,
+            including metadata extraction, page thumbnails, and download links.
+          </Typography>
+
           <Box
             component="iframe"
-            src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(fileUrl)}`}
+            src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
+              fileUrl
+            )}`}
             width="100%"
             height="500px"
           />
