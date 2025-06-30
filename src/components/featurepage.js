@@ -14,7 +14,7 @@ import Box from "@material-ui/core/Box";
 import Logo from "./Assets/smartfoodlogo.png";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import dashboard from "./Assets/dashboard.png";
+// import dashboard from "./Assets/dashboard.png";
 import "@fontsource/inter/800.css";
 import { Link as RouterLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -298,26 +298,6 @@ export default function FileManagerPage() {
               <Typography gutterBottom className={classes.tablecontent}>
                 Table Of Contents
               </Typography>
-              {/* <List disablePadding>
-                <ListItem>
-                  <ListItemText primary="1. Introduction" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="2. Accessing the File Manager" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="3. Searching for Files" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="3. Searching for Files" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="3. Searching for Files" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="3. Searching for Files" />
-                </ListItem>
-              </List> */}
               <List disablePadding>
                 {feature.tablecontent.map((label, idx) => (
                   <ListItem key={idx}>
@@ -353,7 +333,7 @@ export default function FileManagerPage() {
 
           <Box>
             <img
-              src={dashboard}
+              src={feature.image}
               alt="dashboard"
               className={classes.dashboardimg}
             />
@@ -372,7 +352,7 @@ export default function FileManagerPage() {
               className={classes.pdfbtn}
               variant="conatained"
               component="a"
-              href={images.Pdf}
+              href={feature.pdfUrl}
               download
             >
               Download Pdf
@@ -380,7 +360,7 @@ export default function FileManagerPage() {
             <Box
               className={classes.pdfBox}
               component="object"
-              data={images.Pdf}
+              data={feature.pdfUrl}
               type="application/pdf"
               width="100%"
               height="500px"
@@ -398,7 +378,7 @@ export default function FileManagerPage() {
             <Box
               className={classes.youTubeLink}
               component="iframe"
-              src="https://www.youtube.com/embed/D0UnqGm_miA?si=krm-E_1MSPWzO_Wc"
+              src={feature.videoUrl}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -416,9 +396,7 @@ export default function FileManagerPage() {
 
           <Box
             component="iframe"
-            src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
-              fileUrl
-            )}`}
+            src={feature.wordUrl}
             width="100%"
             height="500px"
           />
@@ -435,7 +413,7 @@ export default function FileManagerPage() {
 
             <Box
               component="object"
-              data="https://docs.google.com/gview?url=https://www.adobe.com/support/ovation/ts/docs/ovation_test_show.ppt&embedded=true"
+              data={feature.pptUrl}
               title="PPT"
               width="100%"
               height="500px"
@@ -454,7 +432,7 @@ export default function FileManagerPage() {
 
             <Box
               component="iframe"
-              src="https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit?gid=0#gid=0"
+              src={feature.excelUrl}
               title="Excel Viewer"
               width="100%"
               height="500px"

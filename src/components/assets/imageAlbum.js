@@ -17,7 +17,9 @@ import Smartaim from "./smartaim.png";
 import Smartregulatory from "./smartregulatory.png";
 import Smartvisitor from "./smartvisitor.png";
 import Pdf from "./dummypdf.pdf"
-
+import dashboard from "./dashboard.png"
+import seconddashboard from  "./seconddashboard.png"
+import secondpdf from "./secondpdf.pdf"
 export const images = {
   Logo,
   Smartaudit,
@@ -36,5 +38,8 @@ export const images = {
   Smartaim,
   Smartregulatory,
   Smartvisitor,
-  Pdf
+  Pdf,
+  dashboard,
+  seconddashboard,
+  secondpdf,
 };
